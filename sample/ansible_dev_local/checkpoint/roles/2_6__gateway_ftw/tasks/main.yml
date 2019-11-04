@@ -1,0 +1,31 @@
+---
+# file: roles/2_6__gateway_ftw/tasks/main.yml
+- name: "Create config_system on the gateway"
+  raw: echo "config_system --config-string \"hostname={{ hostname }}
+         &ftw_sic_key={{ sickey }}&timezone='{{ timezone }}'
+         &install_security_managment=false&install_mgmt_primary=false
+         &install_security_gw=true&gateway_daip=false
+         &install_ppak=true&gateway_cluster_member=false
+         &download_info=true\" >> ftw.output & " > /home/admin/ftwstart
+
+- name: "Change permissions"
+  raw: chmod 755 ftwstart 
+
+- name: "Run the FTW Setup"
+  command: "/bin/bash /home/admin/ftwstart" 
+
+- name: Wait until the FTW completes
+  wait_for:
+    path: /etc/.wizard_accepted 
+  register: exists
+  until: exists is success
+  retries: 20
+  delay: 15
+
+- name: Waiting for 10 seconds before reboot
+  pause:
+    seconds: 10
+
+- name: Rebooting 
+  command: "shutdown -r now"
+

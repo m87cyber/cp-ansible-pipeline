@@ -1,0 +1,6 @@
+name,ip-address,color,tags,comments
+dev1_HOST_10.1.1.201,10.1.1.201,blue,dev1,"GUI client"
+dev1_HOST_172.16.1.101,172.16.1.101,cyan,dev1,"Zabbix Server"
+dev1_HOST_10.2.2.201,10.2.2.201,orange,dev1,"MATE Client"
+dev1_HOST_192.168.202.214,192.168.202.214,red,dev1,"DNS Server"
+dev1-CP-GW-Hide,192.168.202.111,red,dev1,

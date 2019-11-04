@@ -1,0 +1,5 @@
+---
+# file: roles/2_2__set_interface/tasks/main.yml
+- name: "Configuring Interfaces and change their state to on"
+  shell: "{{ set_interface_syntax }}"
+  with_dict: "{{ interfaces_config }}"

@@ -1,0 +1,10 @@
+---
+# file: 0-apistatus.yml
+- hosts: chkp_sms
+  gather_facts: no
+  tasks:
+    - name: Check API status
+      shell: "bash -lc 'api status' | awk '$0~/API Status/{print $4}'"
+      register: api_status
+    - debug:
+         msg: "{{ api_status }}"

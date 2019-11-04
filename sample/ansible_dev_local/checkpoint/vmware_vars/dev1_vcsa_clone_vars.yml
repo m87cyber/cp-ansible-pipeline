@@ -1,0 +1,50 @@
+---
+# file: vmware_vars/dev1_vcsa_clone_vars.yml
+#...............................................................
+# review the following variables and 
+# modify them according to your environment.
+#...............................................................
+# these varaibles will be used by VMWare roles
+# to clone the gateway from a vm template and to
+# modify the seetings of the vm.
+#...............................................................
+
+vcenter_hostname: "{{ vcsa_address }}"
+vcenter_port: "{{ vcsa_apiport }}"
+vcenter_username: "{{ vcsa_username }}"
+vcenter_password: "{{ vcsa_userpass }}"
+datacenter_name: TNCTDXBLAB
+datacenter_folder: _vm_/labs/Automation
+vm_name: dev1-AU-CP-GW
+template_name: AU-CP-GW-R8030
+virtual_machine_datastore: ESXi-202-SSD7-1
+virtual_machine_rss_pool: _dev1_LAB_AUTOMATION
+# memory_mb_value:
+# num_cpus_vlue:
+# num_cpu_cores_per_socket_value:
+# scsi_value:
+# memory_reservation_lock_value:
+# mem_limit_value:
+# mem_reservation_value:
+# cpu_limit_value:
+# cpu_reservation_value:
+# max_connections_value:
+# hotadd_cpu_value:
+# hotremove_cpu_value:
+# hotadd_memory:
+# version_value:
+# boot_firmware_value:
+# cdrom_type_value:
+# cdrom_iso_path_value:
+# vm_network_name:
+# vm_network_mac_address:
+port_group_name_mgmt: AU_LAB_MGMT
+port_group_name_dmz: dev1_AU_LAB_DMZ
+port_group_name_user: dev1_AU_LAB_USER
+port_group_name_vmnet: VM Network
+wait_for_ip_address_value: YES
+snapshot_datacenter_name: TNCTDXBLAB
+snapshot_name_value: 00-BASE
+snapshot_description: "chkp gw r8030 base installed image; mgmt if 
+                       is configured with a non-default ip-address"
+envtag: dev1

@@ -1,0 +1,27 @@
+---
+# file: roles/1_3__vmware_guest_revert_gw_only/tasks/main.yml
+
+# Powering off the GW VM
+- name: set the powerstate of the GW to poweredoff
+  vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    uuid: "{{ gw_vm_uuid }}"
+    state: poweredoff
+  delegate_to: localhost
+
+# Removing the GW VM
+- name: remove the GW VM 
+  vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    uuid: "{{ gw_vm_uuid }}"
+    state: absent
+  delegate_to: localhost
+

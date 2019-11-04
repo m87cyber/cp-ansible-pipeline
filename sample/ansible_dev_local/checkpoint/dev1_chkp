@@ -1,0 +1,21 @@
+# file: dev1_chkp
+
+[localhost]
+127.0.0.1
+
+[chkp_sms]
+10.1.1.101
+
+[chkp_gw_template]
+10.1.1.254
+
+[chkp_gw]
+10.1.1.1
+
+[os_gaia:children]
+chkp_sms
+chkp_gw_template
+chkp_gw
+
+[vmware_vcsa]
+192.168.202.215

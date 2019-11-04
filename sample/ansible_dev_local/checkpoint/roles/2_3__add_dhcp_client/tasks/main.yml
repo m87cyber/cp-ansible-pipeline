@@ -1,0 +1,5 @@
+---
+# file: roles/2_3__add_dhcp_client/tasks/main.yml
+- name: "Configure the dhcp client interface and change state to on"
+  shell: "{{ add_dhcp_client_syntax }}"
+  with_dict: "{{ dhcp_client_config }}"

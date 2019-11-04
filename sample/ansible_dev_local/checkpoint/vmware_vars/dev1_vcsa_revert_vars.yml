@@ -1,0 +1,22 @@
+---
+# file: vmware_vars/dev1_vcsa_revert_vars.yml
+#...............................................................
+# review the following variables and 
+# modify them according to your environment.
+#...............................................................
+# these varaibles will be used by VMWare roles
+# to delete the gateway vm and revert the SMS to 
+# the base snapshot if '2__dev1_revert.yml'
+# is played.
+#...............................................................
+
+vcenter_hostname: "{{ vcsa_address }}"
+vcenter_port: "{{ vcsa_apiport }}"
+vcenter_username: "{{ vcsa_username }}"
+vcenter_password: "{{ vcsa_userpass }}"
+gw_vm_uuid: "{{ gw_vm_params.instance.hw_product_uuid }}"
+sms_snapshot_datacenter_name: TNCTDXBLAB
+sms_datacenter_name: TNCTDXBLAB
+sms_datacenter_folder: _vm_/labs/Automation
+sms_vm_name: AU-CP-SMS
+sms_base_snapshot_name: 00-BASE

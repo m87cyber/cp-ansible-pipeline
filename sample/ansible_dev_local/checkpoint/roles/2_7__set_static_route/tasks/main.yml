@@ -1,0 +1,15 @@
+---
+# file: roles/2_7__set_static_route/tasks/main.yml
+- name: "Setting static-route"
+  shell: "{{ set_static_route_syntax_1 }}"
+  with_dict: "{{ static_route_config }}"
+  when:
+    - static_route_config.value.interface is defined
+    - static_route_config.value.next_hop_address is not defined
+
+- name: "Setting static-route"
+  shell: "{{ set_static_route_syntax_2 }}"
+  with_dict: "{{ static_route_config }}"
+  when:
+    - static_route_config.value.next_hop_address is defined
+    - static_route_config.value.interface is not defined

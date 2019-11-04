@@ -1,0 +1,4 @@
+---
+# file: roles/2_1__set_bash/defaults/main.yml
+gather_facts: no
+connection: local

@@ -1,0 +1,5 @@
+name,subnet,subnet-mask,color,tags,comments
+dev1_NET_192.168.202.0,192.168.202.0,255.255.255.0,red,dev1,
+dev1_NET_10.1.1.0,10.1.1.0,255.255.255.0,blue,dev1,
+dev1_NET_172.16.1.0,172.16.1.0,255.255.255.0,cyan,dev1,
+dev1_NET_10.2.2.0,10.2.2.0,255.255.255.0,orange,dev1,

@@ -1,0 +1,8 @@
+---
+# file: host_vars/192.168.202.215/vars
+ansible_user: "{{ vault_ansible_user }}"
+ansible_ssh_pass: "{{ vault_ansible_ssh_pass }}"
+vcsa_address: 192.168.202.215
+vcsa_apiport: 4454
+vcsa_username: "{{ vault_vcsa_username }}"
+vcsa_userpass: "{{ vault_vcsa_userpass }}"

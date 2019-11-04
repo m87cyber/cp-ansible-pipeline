@@ -1,0 +1,55 @@
+---
+# file: roles/1_2__vmware_guest_revert/tasks/main.yml
+
+# Powering off the GW VM
+- name: set the powerstate of the GW to poweredoff
+  vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    uuid: "{{ gw_vm_uuid }}"
+    state: poweredoff
+  delegate_to: localhost
+
+# Removing the GW VM
+- name: remove the GW VM 
+  vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    uuid: "{{ gw_vm_uuid }}"
+    state: absent
+  delegate_to: localhost
+
+# Reverting SMS to the base snapshot
+- name: revert sms to base snapshot
+  vmware_guest_snapshot:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    datacenter: "{{ sms_snapshot_datacenter_name }}"
+    folder: "{{ sms_datacenter_folder }}"
+    name: "{{ sms_vm_name }}"
+    state: revert
+    snapshot_name: "{{ sms_base_snapshot_name }}" 
+  delegate_to: localhost
+
+# Powering on the SMS VM
+- name: set the powerstate of the SMS to poweredon
+  vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter: "{{ sms_datacenter_name }}"
+    folder: "{{ sms_datacenter_folder }}"
+    name: "{{ sms_vm_name }}"
+    validate_certs: no
+    state: poweredon
+  delegate_to: localhost

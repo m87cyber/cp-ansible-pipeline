@@ -1,0 +1,10 @@
+---
+# file: roles/2_2__set_interface/defaults/main.yml
+gather_facts: no
+connection: local
+set_interface_syntax: "clish -c 
+                         'set interface {{ item.value.if_name }} 
+                          ipv4-address {{ item.value.if_ipv4 }} 
+                          mask-length 	                          {{ item.value.if_masklength }}' -s 
+                          && clish -c 
+                          'set interface {{ item.value.if_name }} 	                          state on' -s " 

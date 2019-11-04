@@ -1,0 +1,10 @@
+---
+# file: group_vars/localhost/vars
+ansible_connection: local
+ansible_host: 127.0.0.1
+ansible_user: "{{ vault_ansible_user }}"
+ansible_ssh_pass: "{{ vault_ansible_ssh_pass }}"
+ansible_python_interpreter: /usr/bin/python2.7 
+mgmt_server: 10.1.1.101
+mgmt_user: "{{ vault_mgmt_user }}"
+mgmt_password: "{{ vault_mgmt_password }}"

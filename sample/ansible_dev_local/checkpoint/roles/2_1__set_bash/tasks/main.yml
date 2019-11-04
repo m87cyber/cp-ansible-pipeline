@@ -1,0 +1,19 @@
+---
+# file: roles/2_1__set_bash/tasks/main.yml
+- name: "Checking if we are connected to bash"
+  raw: ps -p3580 -ocmd=
+  register: shell_output 
+  ignore_errors: yes
+
+- name: "set shell"
+  raw: set user admin shell /bin/bash
+  when: "'CLINFR0329' in shell_output.stdout"
+
+- name: "save config"
+  raw: save config
+  when: "'CLINFR0329' in shell_output.stdout"
+
+- name: Waiting for 65 seconds to clear SSH session
+  pause:
+    seconds: 65
+  when: "'CLINFR0329' in shell_output.stdout"

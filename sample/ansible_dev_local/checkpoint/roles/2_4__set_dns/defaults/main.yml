@@ -1,0 +1,10 @@
+---
+# file: roles/2_4__set_dns/defaults/main.yml
+gather_facts: no
+connection: local
+set_dns_syntax_1: "clish -c 'set dns primary {{ item.value.dns1 }}' -s"
+set_dns_syntax_2: "clish -c 'set dns primary {{ item.value.dns1 }}' -s 
+                   && clish -c 'set dns secondary {{ item.value.dns2 }}' -s"
+set_dns_syntax_3: "clish -c 'set dns primary {{ item.value.dns1 }}' -s 
+                   && clish -c 'set dns secondary {{ item.value.dns2 }}' -s 
+                   && clish -c 'set dns tertiary {{ item.value.dns3 }}' -s"

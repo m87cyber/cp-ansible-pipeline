@@ -1,0 +1,4 @@
+---
+# file: roles/1_2__vmware_guest_revert/defaults/main.yml
+# gather_facts: no
+connection: local

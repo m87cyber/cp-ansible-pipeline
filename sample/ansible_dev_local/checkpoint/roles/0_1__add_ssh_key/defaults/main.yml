@@ -1,0 +1,4 @@
+---
+# file: roles/0_1__add_ssh_key/defaults/main.yml
+gather_facts: no
+connection: local

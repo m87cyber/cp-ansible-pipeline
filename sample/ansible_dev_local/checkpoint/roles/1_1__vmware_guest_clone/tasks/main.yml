@@ -1,0 +1,70 @@
+---
+# file: roles/1_1__vmware_guest_clone/tasks/main.yml
+- name: Create a virtual machine from a template
+  vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    datacenter: "{{ datacenter_name }}"
+    folder: "{{ datacenter_folder }}"
+    name: "{{ vm_name }}"
+    state: poweredon
+    template: "{{ template_name }}"
+    datastore: "{{ virtual_machine_datastore }}"
+    resource_pool: "{{ virtual_machine_rss_pool }}"
+    # hardware:
+      # memory_mb: "{{ memory_mb_value }}"
+      # num_cpus: "{{ num_cpus_vlue }}"
+      # num_cpu_cores_per_socket: "{{ num_cpu_cores_per_socket_value }}"
+      # scsi: "{{ scsi_value }}"
+      # memory_reservation_lock: "{{ memory_reservation_lock_value }}"
+      # mem_limit: "{{ mem_limit_value }}"
+      # mem_reservation: "{{ mem_reservation_value }}"
+      # cpu_limit: "{{ cpu_limit_value }}"
+      # cpu_reservation: "{{ cpu_reservation_value }}"
+      # max_connections: "{{ max_connections_value }}"
+      # hotadd_cpu: "{{ hotadd_cpu_value }}"
+      # hotremove_cpu: "{{ hotremove_cpu_value }}"
+      # hotadd_memory: "{{ hotadd_memory }}"
+      # version: "{{ version_value }}"  # Hardware version of the virtual machine
+      # boot_firmware: "{{ boot_firmware_value }}"
+    # cdrom:
+      # type: "{{ cdrom_type_value }}"
+      # iso_path: "{{ cdrom_iso_path_value }}"
+    networks:
+    - name: "{{ port_group_name_mgmt }}"
+    - name: "{{ port_group_name_dmz }}"
+    - name: "{{ port_group_name_user }}"
+    - name: "{{ port_group_name_vmnet }}"        
+    wait_for_ip_address: "{{ wait_for_ip_address_value }}"
+  delegate_to: localhost
+  register: deploy
+
+- name: Removing the gw_vm_facts file if it exists
+  local_action: file path=vmware_vars/{{ envtag }}_deployed_gw_vm_facts.yml state=absent
+
+- name: Copying the deployed vm facts to a file
+  local_action: copy content="{{ deploy }}" dest=vmware_vars/{{ envtag }}_deployed_gw_vm_facts.yml
+
+- name: Removing the gw_vm_uuid file if it exists
+  local_action: file path=vmware_vars/{{ envtag }}_deployed_gw_vm_uuid state=absent
+
+- name: Copying uuid of the deployed vm to a file
+  local_action: copy content="{{ deploy.instance.hw_product_uuid }}" dest=vmware_vars/{{ envtag }}_deployed_gw_vm_uuid
+
+- name: Create the base snapshot
+  vmware_guest_snapshot:
+    hostname: "{{ vcenter_hostname }}"
+    port: "{{ vcenter_port }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    datacenter: "{{ snapshot_datacenter_name }}"
+    uuid: "{{ deploy.instance.hw_product_uuid }}"
+    state: present
+    snapshot_name: "{{ snapshot_name_value }}"
+    description: "{{ snapshot_description }}"
+  delegate_to: localhost
+  when: deploy.instance.hw_product_uuid is defined

@@ -1,0 +1,901 @@
+  3807 1572859828.71079: starting run
+  3807 1572859828.87156: Added /home/apiadmin/ansible_dev/checkpoint/library to loader search path
+  3807 1572859828.87191: Added group all to inventory
+  3807 1572859828.87196: Added group ungrouped to inventory
+  3807 1572859828.87211: Group all now contains ungrouped
+  3807 1572859828.87220: Examining possible inventory source: /home/apiadmin/ansible_dev/checkpoint/dev1_chkp
+  3807 1572859828.87316: trying /usr/lib/python2.7/dist-packages/ansible/plugins/cache
+  3807 1572859828.87358: Loading CacheModule 'memory' from /usr/lib/python2.7/dist-packages/ansible/plugins/cache/memory.py
+  3807 1572859828.87389: trying /usr/lib/python2.7/dist-packages/ansible/plugins/inventory
+  3807 1572859828.87445: Loading InventoryModule 'host_list' from /usr/lib/python2.7/dist-packages/ansible/plugins/inventory/host_list.py
+  3807 1572859828.87502: Loaded config def from plugin (inventory/script)
+  3807 1572859828.87506: Loading InventoryModule 'script' from /usr/lib/python2.7/dist-packages/ansible/plugins/inventory/script.py
+  3807 1572859828.87529: Loading InventoryModule 'auto' from /usr/lib/python2.7/dist-packages/ansible/plugins/inventory/auto.py
+  3807 1572859828.87574: Loaded config def from plugin (inventory/yaml)
+  3807 1572859828.87578: Loading InventoryModule 'yaml' from /usr/lib/python2.7/dist-packages/ansible/plugins/inventory/yaml.py
+  3807 1572859828.87616: Loading InventoryModule 'ini' from /usr/lib/python2.7/dist-packages/ansible/plugins/inventory/ini.py
+  3807 1572859828.87650: Loading InventoryModule 'toml' from /usr/lib/python2.7/dist-packages/ansible/plugins/inventory/toml.py
+  3807 1572859828.87655: Attempting to use plugin host_list (/usr/lib/python2.7/dist-packages/ansible/plugins/inventory/host_list.py)
+  3807 1572859828.87658: Attempting to use plugin script (/usr/lib/python2.7/dist-packages/ansible/plugins/inventory/script.py)
+  3807 1572859828.87663: Attempting to use plugin auto (/usr/lib/python2.7/dist-packages/ansible/plugins/inventory/auto.py)
+  3807 1572859828.87665: Attempting to use plugin yaml (/usr/lib/python2.7/dist-packages/ansible/plugins/inventory/yaml.py)
+  3807 1572859828.87724: Loading data from /home/apiadmin/ansible_dev/checkpoint/dev1_chkp
+  3807 1572859828.87762: /home/apiadmin/ansible_dev/checkpoint/dev1_chkp was not parsable by yaml
+  3807 1572859828.87779: Attempting to use plugin ini (/usr/lib/python2.7/dist-packages/ansible/plugins/inventory/ini.py)
+  3807 1572859828.87865: Added group localhost to inventory
+  3807 1572859828.87879: set inventory_file for 127.0.0.1
+  3807 1572859828.87883: set inventory_dir for 127.0.0.1
+  3807 1572859828.87885: Added host 127.0.0.1 to inventory
+  3807 1572859828.87888: Added host 127.0.0.1 to group localhost
+  3807 1572859828.87891: Added group chkp_sms to inventory
+  3807 1572859828.87897: set inventory_file for 10.1.1.101
+  3807 1572859828.87901: set inventory_dir for 10.1.1.101
+  3807 1572859828.87903: Added host 10.1.1.101 to inventory
+  3807 1572859828.87904: Added host 10.1.1.101 to group chkp_sms
+  3807 1572859828.87906: Added group chkp_gw_template to inventory
+  3807 1572859828.87913: set inventory_file for 10.1.1.254
+  3807 1572859828.87916: set inventory_dir for 10.1.1.254
+  3807 1572859828.87918: Added host 10.1.1.254 to inventory
+  3807 1572859828.87919: Added host 10.1.1.254 to group chkp_gw_template
+  3807 1572859828.87922: Added group chkp_gw to inventory
+  3807 1572859828.87927: set inventory_file for 10.1.1.1
+  3807 1572859828.87931: set inventory_dir for 10.1.1.1
+  3807 1572859828.87932: Added host 10.1.1.1 to inventory
+  3807 1572859828.87934: Added host 10.1.1.1 to group chkp_gw
+  3807 1572859828.87936: Added group os_gaia to inventory
+  3807 1572859828.87940: Group os_gaia now contains chkp_sms
+  3807 1572859828.87944: Group os_gaia now contains chkp_gw_template
+  3807 1572859828.87946: Group os_gaia now contains chkp_gw
+  3807 1572859828.87948: Added group vmware_vcsa to inventory
+  3807 1572859828.87955: set inventory_file for 192.168.202.215
+  3807 1572859828.87959: set inventory_dir for 192.168.202.215
+  3807 1572859828.87960: Added host 192.168.202.215 to inventory
+  3807 1572859828.87962: Added host 192.168.202.215 to group vmware_vcsa
+  3807 1572859828.87964: Reconcile groups and hosts in inventory.
+  3807 1572859828.87968: Group all now contains os_gaia
+  3807 1572859828.87972: Group all now contains vmware_vcsa
+  3807 1572859828.87975: Group all now contains localhost
+  3807 1572859828.87984: Loading CacheModule 'memory' from /usr/lib/python2.7/dist-packages/ansible/plugins/cache/memory.py (found_in_cache=True, class_only=False)
+  3807 1572859828.88714: Loaded config def from plugin (connection/buildah)
+  3807 1572859828.88730: Loading Connection 'buildah' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/buildah.py (found_in_cache=False, class_only=True)
+  3807 1572859828.88810: Loaded config def from plugin (connection/chroot)
+  3807 1572859828.88817: Loading Connection 'chroot' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/chroot.py (found_in_cache=False, class_only=True)
+  3807 1572859828.89076: Loaded config def from plugin (connection/docker)
+  3807 1572859828.89083: Loading Connection 'docker' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/docker.py (found_in_cache=False, class_only=True)
+  3807 1572859828.89128: Loaded config def from plugin (connection/funcd)
+  3807 1572859828.95868: Loaded config def from plugin (connection/httpapi)
+  3807 1572859828.95875: Loading Connection 'httpapi' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/httpapi.py (found_in_cache=False, class_only=True)
+  3807 1572859828.95930: Loaded config def from plugin (connection/iocage)
+  3807 1572859828.95936: Loading Connection 'iocage' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/iocage.py (found_in_cache=False, class_only=True)
+  3807 1572859828.95983: Loaded config def from plugin (connection/jail)
+  3807 1572859828.95988: Loading Connection 'jail' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/jail.py (found_in_cache=False, class_only=True)
+  3807 1572859828.96182: Loaded config def from plugin (connection/kubectl)
+  3807 1572859828.96187: Loading Connection 'kubectl' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/kubectl.py (found_in_cache=False, class_only=True)
+  3807 1572859828.96225: Loaded config def from plugin (connection/libvirt_lxc)
+  3807 1572859828.96230: Loading Connection 'libvirt_lxc' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/libvirt_lxc.py (found_in_cache=False, class_only=True)
+  3807 1572859828.96259: Loading Connection 'local' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/local.py (found_in_cache=False, class_only=True)
+  3807 1572859828.96308: Loaded config def from plugin (connection/lxc)
+  3807 1572859828.96315: Loading Connection 'lxc' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/lxc.py (found_in_cache=False, class_only=True)
+  3807 1572859828.96360: Loaded config def from plugin (connection/lxd)
+  3807 1572859828.96365: Loading Connection 'lxd' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/lxd.py (found_in_cache=False, class_only=True)
+  3807 1572859828.96529: Loaded config def from plugin (connection/napalm)
+  3807 1572859828.96535: Loading Connection 'napalm' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/napalm.py (found_in_cache=False, class_only=True)
+  3807 1572859828.96748: Loaded config def from plugin (connection/netconf)
+  3807 1572859828.96754: Loading Connection 'netconf' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/netconf.py (found_in_cache=False, class_only=True)
+  3807 1572859828.97012: Loaded config def from plugin (connection/network_cli)
+  3807 1572859828.97018: Loading Connection 'network_cli' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/network_cli.py (found_in_cache=False, class_only=True)
+  3807 1572859828.97199: Loaded config def from plugin (connection/oc)
+  3807 1572859828.97204: Loading Connection 'oc' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/oc.py (found_in_cache=False, class_only=True)
+  3807 1572859828.97433: Loaded config def from plugin (connection/paramiko_ssh)
+  3807 1572859828.97439: Loading Connection 'paramiko_ssh' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/paramiko_ssh.py (found_in_cache=False, class_only=True)
+  3807 1572859828.97539: Loaded config def from plugin (connection/persistent)
+  3807 1572859828.97545: Loading Connection 'persistent' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/persistent.py (found_in_cache=False, class_only=True)
+  3807 1572859828.97596: Loaded config def from plugin (connection/podman)
+  3807 1572859828.97601: Loading Connection 'podman' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/podman.py (found_in_cache=False, class_only=True)
+  3807 1572859828.98033: Loaded config def from plugin (connection/psrp)
+  3807 1572859828.98039: Loading Connection 'psrp' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/psrp.py (found_in_cache=False, class_only=True)
+  3807 1572859828.98080: Loaded config def from plugin (connection/qubes)
+  3807 1572859828.98085: Loading Connection 'qubes' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/qubes.py (found_in_cache=False, class_only=True)
+  3807 1572859828.98119: Loading Connection 'saltstack' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/saltstack.py (found_in_cache=False, class_only=True)
+  3807 1572859828.98469: Loaded config def from plugin (connection/ssh)
+  3807 1572859828.98474: Loading Connection 'ssh' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/ssh.py (found_in_cache=False, class_only=True)
+  3807 1572859829.01484: Loaded config def from plugin (connection/vmware_tools)
+  3807 1572859829.01501: Loading Connection 'vmware_tools' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/vmware_tools.py (found_in_cache=False, class_only=True)
+  3807 1572859829.01681: Loaded config def from plugin (connection/winrm)
+  3807 1572859829.01690: Loading Connection 'winrm' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/winrm.py (found_in_cache=False, class_only=True)
+  3807 1572859829.01731: Loaded config def from plugin (connection/zone)
+  3807 1572859829.01740: Loading Connection 'zone' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/zone.py (found_in_cache=False, class_only=True)
+  3807 1572859829.01885: trying /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments
+  3807 1572859829.02012: Loading ModuleDocFragment 'shell_windows' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/shell_windows.py
+  3807 1572859829.02059: Loaded config def from plugin (shell/cmd)
+  3807 1572859829.02063: Loading ShellModule 'cmd' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/cmd.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02094: Loading ModuleDocFragment 'shell_common' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/shell_common.py
+  3807 1572859829.02171: Loaded config def from plugin (shell/csh)
+  3807 1572859829.02175: Loading ShellModule 'csh' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/csh.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02209: Loading ModuleDocFragment 'shell_common' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/shell_common.py (found_in_cache=True, class_only=False)
+  3807 1572859829.02284: Loaded config def from plugin (shell/fish)
+  3807 1572859829.02288: Loading ShellModule 'fish' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/fish.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02323: Loading ModuleDocFragment 'shell_windows' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/shell_windows.py (found_in_cache=True, class_only=False)
+  3807 1572859829.02363: Loaded config def from plugin (shell/powershell)
+  3807 1572859829.02368: Loading ShellModule 'powershell' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/powershell.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02395: Loading ModuleDocFragment 'shell_common' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/shell_common.py (found_in_cache=True, class_only=False)
+  3807 1572859829.02471: Loaded config def from plugin (shell/sh)
+  3807 1572859829.02475: Loading ShellModule 'sh' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/sh.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02627: Loaded config def from plugin (become/doas)
+  3807 1572859829.02632: Loading BecomeModule 'doas' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/doas.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02724: Loaded config def from plugin (become/dzdo)
+  3807 1572859829.02728: Loading BecomeModule 'dzdo' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/dzdo.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02767: Loaded config def from plugin (become/enable)
+  3807 1572859829.02771: Loading BecomeModule 'enable' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/enable.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02882: Loaded config def from plugin (become/ksu)
+  3807 1572859829.02887: Loading BecomeModule 'ksu' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/ksu.py (found_in_cache=False, class_only=True)
+  3807 1572859829.02979: Loaded config def from plugin (become/machinectl)
+  3807 1572859829.02983: Loading BecomeModule 'machinectl' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/machinectl.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03088: Loaded config def from plugin (become/pbrun)
+  3807 1572859829.03093: Loading BecomeModule 'pbrun' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/pbrun.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03202: Loaded config def from plugin (become/pfexec)
+  3807 1572859829.03206: Loading BecomeModule 'pfexec' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/pfexec.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03282: Loaded config def from plugin (become/pmrun)
+  3807 1572859829.03288: Loading BecomeModule 'pmrun' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/pmrun.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03366: Loaded config def from plugin (become/runas)
+  3807 1572859829.03371: Loading BecomeModule 'runas' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/runas.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03486: Loaded config def from plugin (become/sesu)
+  3807 1572859829.03490: Loading BecomeModule 'sesu' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/sesu.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03602: Loaded config def from plugin (become/su)
+  3807 1572859829.03605: Loading BecomeModule 'su' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/su.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03703: Loaded config def from plugin (become/sudo)
+  3807 1572859829.03708: Loading BecomeModule 'sudo' from /usr/lib/python2.7/dist-packages/ansible/plugins/become/sudo.py (found_in_cache=False, class_only=True)
+  3807 1572859829.03733: Loading data from /home/apiadmin/ansible_dev/checkpoint/0-apistatus.yml
+  3807 1572859829.04820: trying /usr/lib/python2.7/dist-packages/ansible/plugins/action
+  3807 1572859829.07044: trying /home/apiadmin/ansible_dev/checkpoint/library
+  3807 1572859829.07055: trying /usr/lib/python2.7/dist-packages/ansible/modules
+  3807 1572859829.07065: trying /usr/lib/python2.7/dist-packages/ansible/modules/system
+  3807 1572859829.07149: trying /usr/lib/python2.7/dist-packages/ansible/modules/messaging
+  3807 1572859829.07155: trying /usr/lib/python2.7/dist-packages/ansible/modules/clustering
+  3807 1572859829.07172: trying /usr/lib/python2.7/dist-packages/ansible/modules/commands
+  3807 1572859829.07188: trying /usr/lib/python2.7/dist-packages/ansible/modules/crypto
+  3807 1572859829.07212: trying /usr/lib/python2.7/dist-packages/ansible/modules/utilities
+  3807 1572859829.07218: trying /usr/lib/python2.7/dist-packages/ansible/modules/files
+  3807 1572859829.07248: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management
+  3807 1572859829.07259: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud
+  3807 1572859829.07278: trying /usr/lib/python2.7/dist-packages/ansible/modules/packaging
+  3807 1572859829.07283: trying /usr/lib/python2.7/dist-packages/ansible/modules/inventory
+  3807 1572859829.07290: trying /usr/lib/python2.7/dist-packages/ansible/modules/source_control
+  3807 1572859829.07320: trying /usr/lib/python2.7/dist-packages/ansible/modules/monitoring
+  3807 1572859829.07366: trying /usr/lib/python2.7/dist-packages/ansible/modules/web_infrastructure
+  3807 1572859829.07396: trying /usr/lib/python2.7/dist-packages/ansible/modules/network
+  3807 1572859829.07417: trying /usr/lib/python2.7/dist-packages/ansible/modules/database
+  3807 1572859829.07425: trying /usr/lib/python2.7/dist-packages/ansible/modules/notification
+  3807 1572859829.07463: trying /usr/lib/python2.7/dist-packages/ansible/modules/identity
+  3807 1572859829.07470: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage
+  3807 1572859829.07477: trying /usr/lib/python2.7/dist-packages/ansible/modules/net_tools
+  3807 1572859829.07496: trying /usr/lib/python2.7/dist-packages/ansible/modules/messaging/rabbitmq
+  3807 1572859829.07511: trying /usr/lib/python2.7/dist-packages/ansible/modules/clustering/openshift
+  3807 1572859829.07520: trying /usr/lib/python2.7/dist-packages/ansible/modules/clustering/k8s
+  3807 1572859829.07532: trying /usr/lib/python2.7/dist-packages/ansible/modules/crypto/acme
+  3807 1572859829.07545: trying /usr/lib/python2.7/dist-packages/ansible/modules/utilities/helper
+  3807 1572859829.07552: trying /usr/lib/python2.7/dist-packages/ansible/modules/utilities/logic
+  3807 1572859829.07574: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/stacki
+  3807 1572859829.07580: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/dellemc
+  3807 1572859829.07586: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/manageiq
+  3807 1572859829.07599: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/ucs
+  3807 1572859829.07625: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/hpilo
+  3807 1572859829.07633: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/intersight
+  3807 1572859829.07640: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/lxca
+  3807 1572859829.07646: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/oneview
+  3807 1572859829.07666: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/cobbler
+  3807 1572859829.07673: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/redfish
+  3807 1572859829.07684: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/imc
+  3807 1572859829.07690: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/ipmi
+  3807 1572859829.07698: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/foreman
+  3807 1572859829.07705: trying /usr/lib/python2.7/dist-packages/ansible/modules/remote_management/cpm
+  3807 1572859829.07712: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/alicloud
+  3807 1572859829.07719: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/scaleway
+  3807 1572859829.07740: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/digital_ocean
+  3807 1572859829.07768: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/univention
+  3807 1572859829.07778: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/openstack
+  3807 1572859829.07842: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/oracle
+  3807 1572859829.07848: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/azure
+  3807 1572859829.08019: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/vmware
+  3807 1572859829.08158: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/pubnub
+  3807 1572859829.08166: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/oneandone
+  3807 1572859829.08178: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/cloudscale
+  3807 1572859829.08188: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/amazon
+  3807 1572859829.08397: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/opennebula
+  3807 1572859829.08410: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/vultr
+  3807 1572859829.08450: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/rackspace
+  3807 1572859829.08484: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/atomic
+  3807 1572859829.08493: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/packet
+  3807 1572859829.08501: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/linode
+  3807 1572859829.08508: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/huawei
+  3807 1572859829.08515: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/podman
+  3807 1572859829.08522: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/cloudstack
+  3807 1572859829.08585: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/softlayer
+  3807 1572859829.08592: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/centurylink
+  3807 1572859829.08609: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/spotinst
+  3807 1572859829.08615: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/xenserver
+  3807 1572859829.08623: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/heroku
+  3807 1572859829.08630: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/kubevirt
+  3807 1572859829.08642: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/memset
+  3807 1572859829.08653: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/google
+  3807 1572859829.08800: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/profitbricks
+  3807 1572859829.08812: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/lxd
+  3807 1572859829.08821: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/smartos
+  3807 1572859829.08831: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/dimensiondata
+  3807 1572859829.08839: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/lxc
+  3807 1572859829.08845: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/ovirt
+  3807 1572859829.08915: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/webfaction
+  3807 1572859829.08943: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/misc
+  3807 1572859829.08974: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/ovh
+  3807 1572859829.08986: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/docker
+  3807 1572859829.09023: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/online
+  3807 1572859829.09032: trying /usr/lib/python2.7/dist-packages/ansible/modules/cloud/hcloud
+  3807 1572859829.09052: trying /usr/lib/python2.7/dist-packages/ansible/modules/packaging/language
+  3807 1572859829.09074: trying /usr/lib/python2.7/dist-packages/ansible/modules/packaging/os
+  3807 1572859829.09138: trying /usr/lib/python2.7/dist-packages/ansible/modules/source_control/bitbucket
+  3807 1572859829.09149: trying /usr/lib/python2.7/dist-packages/ansible/modules/monitoring/zabbix
+  3807 1572859829.09173: trying /usr/lib/python2.7/dist-packages/ansible/modules/web_infrastructure/ansible_tower
+  3807 1572859829.09210: trying /usr/lib/python2.7/dist-packages/ansible/modules/web_infrastructure/sophos_utm
+  3807 1572859829.09236: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/dellos9
+  3807 1572859829.09245: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/system
+  3807 1572859829.09259: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/layer2
+  3807 1572859829.09267: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/edgeos
+  3807 1572859829.09277: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/aireos
+  3807 1572859829.09285: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/a10
+  3807 1572859829.09295: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/fortios
+  3807 1572859829.09577: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/onyx
+  3807 1572859829.09612: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/routeros
+  3807 1572859829.09621: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/netconf
+  3807 1572859829.09630: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/frr
+  3807 1572859829.09637: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/meraki
+  3807 1572859829.09660: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/nuage
+  3807 1572859829.09667: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/files
+  3807 1572859829.09674: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/illumos
+  3807 1572859829.09692: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/aos
+  3807 1572859829.09712: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/layer3
+  3807 1572859829.09720: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/restconf
+  3807 1572859829.09727: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/enos
+  3807 1572859829.09735: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/netact
+  3807 1572859829.09741: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/dellos6
+  3807 1572859829.09750: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/panos
+  3807 1572859829.09784: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/ftd
+  3807 1572859829.09794: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/asa
+  3807 1572859829.09803: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/cnos
+  3807 1572859829.09841: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/edgeswitch
+  3807 1572859829.09849: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/cumulus
+  3807 1572859829.09864: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/cloudvision
+  3807 1572859829.09870: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/iosxr
+  3807 1572859829.09887: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/checkpoint
+  3807 1572859829.09903: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/exos
+  3807 1572859829.09911: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/opx
+  3807 1572859829.09917: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/netvisor
+  3807 1572859829.09970: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/nos
+  3807 1572859829.09979: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/aci
+  3807 1572859829.10109: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/ovs
+  3807 1572859829.10118: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/eos
+  3807 1572859829.10144: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/routing
+  3807 1572859829.10151: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/nso
+  3807 1572859829.10162: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/itential
+  3807 1572859829.10170: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/voss
+  3807 1572859829.10178: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/ironware
+  3807 1572859829.10187: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/f5
+  3807 1572859829.10383: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/ios
+  3807 1572859829.10410: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/radware
+  3807 1572859829.10420: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/ordnance
+  3807 1572859829.10429: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/protocol
+  3807 1572859829.10434: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/dellos10
+  3807 1572859829.10443: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/interface
+  3807 1572859829.10452: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/bigswitch
+  3807 1572859829.10461: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/nxos
+  3807 1572859829.10561: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/sros
+  3807 1572859829.10571: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/fortimanager
+  3807 1572859829.10609: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/ingate
+  3807 1572859829.10617: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/avi
+  3807 1572859829.10705: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/aruba
+  3807 1572859829.10713: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/netscaler
+  3807 1572859829.10736: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/junos
+  3807 1572859829.10767: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/slxos
+  3807 1572859829.10785: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/skydive
+  3807 1572859829.10793: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/cli
+  3807 1572859829.10801: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/cloudengine
+  3807 1572859829.10887: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/citrix
+  3807 1572859829.10894: trying /usr/lib/python2.7/dist-packages/ansible/modules/network/vyos
+  3807 1572859829.10917: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/mysql
+  3807 1572859829.10927: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/mongodb
+  3807 1572859829.10937: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/aerospike
+  3807 1572859829.10943: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/postgresql
+  3807 1572859829.10969: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/mssql
+  3807 1572859829.10975: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/vertica
+  3807 1572859829.10986: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/proxysql
+  3807 1572859829.10999: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/misc
+  3807 1572859829.11009: trying /usr/lib/python2.7/dist-packages/ansible/modules/database/influxdb
+  3807 1572859829.11020: trying /usr/lib/python2.7/dist-packages/ansible/modules/identity/ipa
+  3807 1572859829.11045: trying /usr/lib/python2.7/dist-packages/ansible/modules/identity/opendj
+  3807 1572859829.11052: trying /usr/lib/python2.7/dist-packages/ansible/modules/identity/keycloak
+  3807 1572859829.11060: trying /usr/lib/python2.7/dist-packages/ansible/modules/identity/cyberark
+  3807 1572859829.11068: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/netapp
+  3807 1572859829.11227: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/vexata
+  3807 1572859829.11234: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/zfs
+  3807 1572859829.11244: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/emc
+  3807 1572859829.11250: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/glusterfs
+  3807 1572859829.11259: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/hpe3par
+  3807 1572859829.11265: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/purestorage
+  3807 1572859829.11359: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/ibm
+  3807 1572859829.11372: trying /usr/lib/python2.7/dist-packages/ansible/modules/storage/infinidat
+  3807 1572859829.11385: trying /usr/lib/python2.7/dist-packages/ansible/modules/net_tools/netbox
+  3807 1572859829.11396: trying /usr/lib/python2.7/dist-packages/ansible/modules/net_tools/basics
+  3807 1572859829.11405: trying /usr/lib/python2.7/dist-packages/ansible/modules/net_tools/nios
+  3807 1572859829.11429: trying /usr/lib/python2.7/dist-packages/ansible/modules/net_tools/ldap
+  3807 1572859829.11438: trying /usr/lib/python2.7/dist-packages/ansible/modules/net_tools/exoscale
+  3807 1572859829.11445: trying /usr/lib/python2.7/dist-packages/ansible/modules/net_tools/infinity
+  3807 1572859829.11451: trying /usr/lib/python2.7/dist-packages/ansible/modules/windows
+  3807 1572859829.11801: trying /usr/lib/python2.7/dist-packages/ansible/plugins/callback
+  3807 1572859829.11908: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py
+  3807 1572859829.11988: Loaded config def from plugin (callback/default)
+  3807 1572859829.11992: Loading CallbackModule 'default' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/default.py
+  3807 1572859829.12095: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.12174: Loaded config def from plugin (callback/actionable)
+  3807 1572859829.12178: Loading CallbackModule 'actionable' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/actionable.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12205: Loading CallbackModule 'aws_resource_actions' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/aws_resource_actions.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12259: Loaded config def from plugin (callback/cgroup_memory_recap)
+  3807 1572859829.12263: Loading CallbackModule 'cgroup_memory_recap' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/cgroup_memory_recap.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12497: Loaded config def from plugin (callback/cgroup_perf_recap)
+  3807 1572859829.12502: Loading CallbackModule 'cgroup_perf_recap' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/cgroup_perf_recap.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12528: Loading CallbackModule 'context_demo' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/context_demo.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12637: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.12784: Loaded config def from plugin (callback/counter_enabled)
+  3807 1572859829.12789: Loading CallbackModule 'counter_enabled' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/counter_enabled.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12819: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.12891: Loaded config def from plugin (callback/debug)
+  3807 1572859829.12895: Loading CallbackModule 'debug' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/debug.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12898: Loading CallbackModule 'default' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/default.py (found_in_cache=False, class_only=True)
+  3807 1572859829.12944: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.13026: Loaded config def from plugin (callback/dense)
+  3807 1572859829.13030: Loading CallbackModule 'dense' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/dense.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13130: Loaded config def from plugin (callback/foreman)
+  3807 1572859829.13134: Loading CallbackModule 'foreman' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/foreman.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13170: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.13242: Loaded config def from plugin (callback/full_skip)
+  3807 1572859829.13246: Loading CallbackModule 'full_skip' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/full_skip.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13379: Loaded config def from plugin (callback/grafana_annotations)
+  3807 1572859829.13383: Loading CallbackModule 'grafana_annotations' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/grafana_annotations.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13475: Loaded config def from plugin (callback/hipchat)
+  3807 1572859829.13479: Loading CallbackModule 'hipchat' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/hipchat.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13540: Loaded config def from plugin (callback/jabber)
+  3807 1572859829.13544: Loading CallbackModule 'jabber' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/jabber.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13588: Loaded config def from plugin (callback/json)
+  3807 1572859829.13592: Loading CallbackModule 'json' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/json.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13720: Loaded config def from plugin (callback/junit)
+  3807 1572859829.13725: Loading CallbackModule 'junit' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/junit.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13755: Loading CallbackModule 'log_plays' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/log_plays.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13857: Loaded config def from plugin (callback/logdna)
+  3807 1572859829.13861: Loading CallbackModule 'logdna' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/logdna.py (found_in_cache=False, class_only=True)
+  3807 1572859829.13990: Loaded config def from plugin (callback/logentries)
+  3807 1572859829.13994: Loading CallbackModule 'logentries' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/logentries.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14051: Loaded config def from plugin (callback/logstash)
+  3807 1572859829.14055: Loading CallbackModule 'logstash' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/logstash.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14200: Loaded config def from plugin (callback/mail)
+  3807 1572859829.14205: Loading CallbackModule 'mail' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/mail.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14231: Loading CallbackModule 'minimal' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/minimal.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14329: Loaded config def from plugin (callback/nrdp)
+  3807 1572859829.14333: Loading CallbackModule 'nrdp' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/nrdp.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14359: Loading CallbackModule 'null' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/null.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14386: Loading CallbackModule 'oneline' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/oneline.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14422: Loading CallbackModule 'osx_say' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/osx_say.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14453: Loading CallbackModule 'profile_roles' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/profile_roles.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14515: Loaded config def from plugin (callback/profile_tasks)
+  3807 1572859829.14519: Loading CallbackModule 'profile_tasks' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/profile_tasks.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14551: Loading CallbackModule 'say' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/say.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14612: Loaded config def from plugin (callback/selective)
+  3807 1572859829.14616: Loading CallbackModule 'selective' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/selective.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14653: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.14736: Loaded config def from plugin (callback/skippy)
+  3807 1572859829.14740: Loading CallbackModule 'skippy' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/skippy.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14828: Loaded config def from plugin (callback/slack)
+  3807 1572859829.14832: Loading CallbackModule 'slack' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/slack.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14890: Loaded config def from plugin (callback/splunk)
+  3807 1572859829.14894: Loading CallbackModule 'splunk' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/splunk.py (found_in_cache=False, class_only=True)
+  3807 1572859829.14930: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.15012: Loaded config def from plugin (callback/stderr)
+  3807 1572859829.15016: Loading CallbackModule 'stderr' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/stderr.py (found_in_cache=False, class_only=True)
+  3807 1572859829.15059: Loaded config def from plugin (callback/sumologic)
+  3807 1572859829.15063: Loading CallbackModule 'sumologic' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/sumologic.py (found_in_cache=False, class_only=True)
+  3807 1572859829.15224: Loaded config def from plugin (callback/syslog_json)
+  3807 1572859829.15229: Loading CallbackModule 'syslog_json' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/syslog_json.py (found_in_cache=False, class_only=True)
+  3807 1572859829.15256: Loading CallbackModule 'timer' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/timer.py (found_in_cache=False, class_only=True)
+  3807 1572859829.15285: Loading CallbackModule 'tree' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/tree.py (found_in_cache=False, class_only=True)
+  3807 1572859829.15322: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.15398: Loaded config def from plugin (callback/unixy)
+  3807 1572859829.15402: Loading CallbackModule 'unixy' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/unixy.py (found_in_cache=False, class_only=True)
+  3807 1572859829.15446: Loading ModuleDocFragment 'default_callback' from /usr/lib/python2.7/dist-packages/ansible/plugins/doc_fragments/default_callback.py (found_in_cache=True, class_only=False)
+  3807 1572859829.15512: Loaded config def from plugin (callback/yaml)
+  3807 1572859829.15516: Loading CallbackModule 'yaml' from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/yaml.py (found_in_cache=False, class_only=True)
+  3807 1572859829.15524: in VariableManager get_vars()
+  3807 1572859829.15642: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py
+  3807 1572859829.15654: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py
+  3807 1572859829.15665: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py
+  3807 1572859829.15865: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py
+  3807 1572859829.16590: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py
+  3807 1572859829.16754: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py
+  3807 1572859829.16774: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py
+  3807 1572859829.16794: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py
+  3807 1572859829.16829: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py
+  3807 1572859829.16843: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py
+  3807 1572859829.16856: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py
+  3807 1572859829.17104: done with get_vars()
+  3807 1572859829.17113: in VariableManager get_vars()
+  3807 1572859829.17136: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17139: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17142: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17185: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17189: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17191: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17193: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17195: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17197: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17198: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17200: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17248: done with get_vars()
+  3807 1572859829.17269: in VariableManager get_vars()
+  3807 1572859829.17291: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17297: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17300: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17331: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17336: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17338: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17340: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17341: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17343: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17345: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17346: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py (found_in_cache=True, class_only=False)
+  3807 1572859829.17396: done with get_vars()
+
+PLAY [chkp_sms] **********************************************************************************************************************************************
+  3807 1572859829.17559: trying /usr/lib/python2.7/dist-packages/ansible/plugins/strategy
+  3807 1572859829.17588: Loading StrategyModule 'linear' from /usr/lib/python2.7/dist-packages/ansible/plugins/strategy/linear.py
+  3807 1572859829.17621: getting the remaining hosts for this loop
+  3807 1572859829.17645: done getting the remaining hosts for this loop
+  3807 1572859829.17674: building list of next tasks for hosts
+  3807 1572859829.17688: getting the next task for host 10.1.1.101
+  3807 1572859829.17713: done getting next task for host 10.1.1.101
+  3807 1572859829.17732:  ^ task is: TASK: meta (flush_handlers)
+  3807 1572859829.17752:  ^ state is: HOST STATE: block=1, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859829.17763: done building task lists
+  3807 1572859829.17774: counting tasks in each state of execution
+  3807 1572859829.17791: done counting tasks in each state of execution:
+	num_setups: 0
+	num_tasks: 1
+	num_rescue: 0
+	num_always: 0
+  3807 1572859829.17804: advancing hosts in ITERATING_TASKS
+  3807 1572859829.17815: starting to advance hosts
+  3807 1572859829.17831: getting the next task for host 10.1.1.101
+  3807 1572859829.17855: done getting next task for host 10.1.1.101
+  3807 1572859829.17874:  ^ task is: TASK: meta (flush_handlers)
+  3807 1572859829.17888:  ^ state is: HOST STATE: block=1, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859829.17901: done advancing hosts to next task
+  3807 1572859829.17946: done queuing things up, now waiting for results queue to drain
+  3807 1572859829.17962: results queue empty
+  3807 1572859829.17972: checking for any_errors_fatal
+  3807 1572859829.17992: done checking for any_errors_fatal
+  3807 1572859829.18000: checking for max_fail_percentage
+  3807 1572859829.18014: done checking for max_fail_percentage
+  3807 1572859829.18030: checking to see if all hosts have failed and the running result is not ok
+  3807 1572859829.18039: done checking to see if all hosts have failed
+  3807 1572859829.18054: getting the remaining hosts for this loop
+  3807 1572859829.18074: done getting the remaining hosts for this loop
+  3807 1572859829.18097: building list of next tasks for hosts
+  3807 1572859829.18111: getting the next task for host 10.1.1.101
+  3807 1572859829.18130: done getting next task for host 10.1.1.101
+  3807 1572859829.18147:  ^ task is: TASK: Check API status
+  3807 1572859829.18163:  ^ state is: HOST STATE: block=2, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859829.18176: done building task lists
+  3807 1572859829.18185: counting tasks in each state of execution
+  3807 1572859829.18203: done counting tasks in each state of execution:
+	num_setups: 0
+	num_tasks: 1
+	num_rescue: 0
+	num_always: 0
+  3807 1572859829.18206: advancing hosts in ITERATING_TASKS
+  3807 1572859829.18210: starting to advance hosts
+  3807 1572859829.18213: getting the next task for host 10.1.1.101
+  3807 1572859829.18218: done getting next task for host 10.1.1.101
+  3807 1572859829.18224:  ^ task is: TASK: Check API status
+  3807 1572859829.18230:  ^ state is: HOST STATE: block=2, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859829.18233: done advancing hosts to next task
+  3807 1572859829.18302: Loading ActionModule 'shell' from /usr/lib/python2.7/dist-packages/ansible/plugins/action/shell.py (found_in_cache=False, class_only=True)
+  3807 1572859829.18307: getting variables
+  3807 1572859829.18312: in VariableManager get_vars()
+  3807 1572859829.18346: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18351: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18356: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18411: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18419: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18424: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18429: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18435: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18440: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18446: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18451: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18539: Calling all_inventory to load vars for 10.1.1.101
+  3807 1572859829.18546: Calling groups_inventory to load vars for 10.1.1.101
+  3807 1572859829.18552: Calling all_plugins_inventory to load vars for 10.1.1.101
+  3807 1572859829.18622: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py
+  3807 1572859829.18633: 	processing dir /home/apiadmin/ansible_dev/checkpoint/group_vars
+  3807 1572859829.18652: Calling all_plugins_play to load vars for 10.1.1.101
+  3807 1572859829.18667: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18680: Calling groups_plugins_inventory to load vars for 10.1.1.101
+  3807 1572859829.18697: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18707: 	processing dir /home/apiadmin/ansible_dev/checkpoint/group_vars
+  3807 1572859829.18722: Loading data from /home/apiadmin/ansible_dev/checkpoint/group_vars/os_gaia
+  3807 1572859829.18755: 	processing dir /home/apiadmin/ansible_dev/checkpoint/group_vars
+  3807 1572859829.18770: Calling groups_plugins_play to load vars for 10.1.1.101
+  3807 1572859829.18787: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18798: Loading data from /home/apiadmin/ansible_dev/checkpoint/group_vars/os_gaia
+  3807 1572859829.18827: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859829.18836: 	processing dir /home/apiadmin/ansible_dev/checkpoint/host_vars
+  3807 1572859829.18863: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vars
+  3807 1572859829.18896: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vault
+  3807 1572859829.21372: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859829.21384: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vars
+  3807 1572859829.21389: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vault
+  3807 1572859829.21551: done with get_vars()
+  3807 1572859829.21567: done getting variables
+  3807 1572859829.21573: sending task start callback, copying the task so we can template it temporarily
+  3807 1572859829.21577: done copying, going to template now
+  3807 1572859829.21584: done templating
+  3807 1572859829.21588: here goes the callback...
+
+TASK [Check API status] **************************************************************************************************************************************
+  3807 1572859829.21602: sending task start callback
+  3807 1572859829.21607: entering _queue_task() for 10.1.1.101/shell
+  3807 1572859829.21611: Creating lock for shell
+  3807 1572859829.21740: worker is 1 (out of 1 available)
+  3807 1572859829.21774: exiting _queue_task() for 10.1.1.101/shell
+  3807 1572859829.21794: done queuing things up, now waiting for results queue to drain
+  3807 1572859829.21799: waiting for pending results...
+  3814 1572859829.22148: running TaskExecutor() for 10.1.1.101/TASK: Check API status
+  3814 1572859829.22192: in run() - task 005056b0-d1a9-cbcd-08df-00000000000c
+  3814 1572859829.22237: calling self._execute()
+  3814 1572859829.22407: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22412: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22417: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22466: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22471: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22476: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22481: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22484: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22486: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22489: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22491: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22763: trying /usr/lib/python2.7/dist-packages/ansible/plugins/connection
+  3814 1572859829.22809: Loading Connection 'ssh' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/ssh.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22821: trying /usr/lib/python2.7/dist-packages/ansible/plugins/shell
+  3814 1572859829.22837: Loading ShellModule 'sh' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/sh.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22844: Loading ShellModule 'sh' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/sh.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22972: Loading ActionModule 'shell' from /usr/lib/python2.7/dist-packages/ansible/plugins/action/shell.py (found_in_cache=True, class_only=False)
+  3814 1572859829.22980: starting attempt loop
+  3814 1572859829.22984: running the handler
+  3814 1572859829.23048: Loading ActionModule 'command' from /usr/lib/python2.7/dist-packages/ansible/plugins/action/command.py
+  3814 1572859829.23064: _low_level_execute_command(): starting
+  3814 1572859829.23072: _low_level_execute_command(): executing: /bin/sh -c 'echo ~admin && sleep 0'
+  3814 1572859829.31767: stderr chunk (state=2):
+>>>This system is for authorized use only.
+<<<
+  3814 1572859829.37148: stdout chunk (state=3):
+>>>/home/admin
+<<<
+  3814 1572859829.37295: stdout chunk (state=3):
+>>><<<
+  3814 1572859830.37381: _low_level_execute_command() done: rc=0, stdout=/home/admin
+, stderr=This system is for authorized use only.
+  3814 1572859830.37419: _low_level_execute_command(): starting
+  3814 1572859830.37443: _low_level_execute_command(): executing: /bin/sh -c '( umask 77 && mkdir -p "` echo /home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001 `" && echo ansible-tmp-1572859829.23-113443530803001="` echo /home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001 `" ) && sleep 0'
+  3814 1572859830.43108: stdout chunk (state=2):
+>>>ansible-tmp-1572859829.23-113443530803001=/home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001
+<<<
+  3814 1572859830.43262: stderr chunk (state=3):
+>>><<<
+  3814 1572859830.43272: stdout chunk (state=3):
+>>><<<
+  3814 1572859830.43290: _low_level_execute_command() done: rc=0, stdout=ansible-tmp-1572859829.23-113443530803001=/home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001
+, stderr=
+  3814 1572859830.43375: ANSIBALLZ: Using generic lock for command
+  3814 1572859830.43378: ANSIBALLZ: Acquiring lock
+  3814 1572859830.43382: ANSIBALLZ: Lock acquired: 140484368493776
+  3814 1572859830.43385: ANSIBALLZ: Creating module
+  3814 1572859830.54585: ANSIBALLZ: Writing module
+  3814 1572859830.54598: ANSIBALLZ: Renaming module
+  3814 1572859830.54603: ANSIBALLZ: Done creating module
+  3814 1572859830.54664: transferring module to remote /home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001/AnsiballZ_command.py
+  3814 1572859830.55023: Sending initial data
+  3814 1572859830.55030: Sent initial data (155 bytes)
+  3814 1572859830.55625: stderr chunk (state=3):
+>>>Couldn't read packet: Connection reset by peer
+<<<
+  3814 1572859830.55646: stderr chunk (state=3):
+>>><<<
+  3814 1572859830.55653: stdout chunk (state=3):
+>>><<<
+  3814 1572859830.55733: 
+  3814 1572859830.55737: Couldn't read packet: Connection reset by peer
+  3814 1572859830.66548: stderr chunk (state=2):
+>>><<<
+  3814 1572859830.66565: stdout chunk (state=2):
+>>><<<
+  3814 1572859830.66589: done transferring module to remote
+  3814 1572859830.66612: _low_level_execute_command(): starting
+  3814 1572859830.66623: _low_level_execute_command(): executing: /bin/sh -c 'chmod u+x /home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001/ /home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001/AnsiballZ_command.py && sleep 0'
+  3814 1572859830.73222: stderr chunk (state=2):
+>>><<<
+  3814 1572859830.73232: stdout chunk (state=2):
+>>><<<
+  3814 1572859830.73249: _low_level_execute_command() done: rc=0, stdout=, stderr=
+  3814 1572859830.73253: _low_level_execute_command(): starting
+  3814 1572859830.73263: _low_level_execute_command(): executing: /bin/sh -c '/opt/CPsuite-R80.30/fw1/Python/bin/python /home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001/AnsiballZ_command.py && sleep 0'
+  3814 1572859833.86404: stdout chunk (state=2):
+>>>
+{"changed": true, "end": "2019-11-04 01:30:33.882411", "stdout": "Started", "cmd": "bash -lc 'api status' | awk '$0~/API Status/{print $4}'", "rc": 0, "start": "2019-11-04 01:30:30.897610", "stderr": "", "delta": "0:00:02.984801", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "bash -lc 'api status' | awk '$0~/API Status/{print $4}'", "removes": null, "argv": null, "warn": true, "chdir": null, "stdin_add_newline": true, "stdin": null}}}
+<<<
+  3814 1572859833.87153: stderr chunk (state=3):
+>>>Shared connection to 10.1.1.101 closed.
+<<<
+  3814 1572859833.87197: stderr chunk (state=3):
+>>><<<
+  3814 1572859833.87208: stdout chunk (state=3):
+>>><<<
+  3814 1572859833.87229: _low_level_execute_command() done: rc=0, stdout=
+{"changed": true, "end": "2019-11-04 01:30:33.882411", "stdout": "Started", "cmd": "bash -lc 'api status' | awk '$0~/API Status/{print $4}'", "rc": 0, "start": "2019-11-04 01:30:30.897610", "stderr": "", "delta": "0:00:02.984801", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "bash -lc 'api status' | awk '$0~/API Status/{print $4}'", "removes": null, "argv": null, "warn": true, "chdir": null, "stdin_add_newline": true, "stdin": null}}}
+, stderr=Shared connection to 10.1.1.101 closed.
+  3814 1572859833.87356: done with _execute_module (command, {'_ansible_version': '2.8.6', '_ansible_socket': None, '_ansible_remote_tmp': u'~/.ansible/tmp', '_uses_shell': True, '_ansible_no_log': False, '_ansible_module_name': 'command', u'_raw_params': u"bash -lc 'api status' | awk '$0~/API Status/{print $4}'", '_ansible_verbosity': 0, '_ansible_keep_remote_files': False, '_ansible_syslog_facility': u'LOG_USER', 'warn': True, '_ansible_string_conversion_action': u'warn', '_ansible_selinux_special_fs': ['fuse', 'nfs', 'vboxsf', 'ramfs', '9p'], '_ansible_diff': False, '_ansible_debug': True, '_ansible_shell_executable': u'/bin/sh', '_ansible_check_mode': False, '_ansible_tmpdir': u'/home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001/'})
+  3814 1572859833.87371: _low_level_execute_command(): starting
+  3814 1572859833.87379: _low_level_execute_command(): executing: /bin/sh -c 'rm -f -r /home/admin/.ansible/tmp/ansible-tmp-1572859829.23-113443530803001/ > /dev/null 2>&1 && sleep 0'
+  3814 1572859833.93143: stderr chunk (state=2):
+>>><<<
+  3814 1572859833.93154: stdout chunk (state=2):
+>>><<<
+  3814 1572859833.93176: _low_level_execute_command() done: rc=0, stdout=, stderr=
+  3814 1572859833.93184: handler run complete
+  3814 1572859833.93282: attempt loop complete, returning result
+  3814 1572859833.93288: _execute() done
+  3814 1572859833.93293: dumping result to json
+  3814 1572859833.93299: done dumping result, returning
+  3814 1572859833.93310: done running TaskExecutor() for 10.1.1.101/TASK: Check API status [005056b0-d1a9-cbcd-08df-00000000000c]
+  3814 1572859833.93324: sending task result for task 005056b0-d1a9-cbcd-08df-00000000000c
+  3814 1572859833.93361: done sending task result for task 005056b0-d1a9-cbcd-08df-00000000000c
+  3814 1572859833.93365: WORKER PROCESS EXITING
+changed: [10.1.1.101]
+  3807 1572859833.93553: no more pending results, returning what we have
+  3807 1572859833.93557: results queue empty
+  3807 1572859833.93558: checking for any_errors_fatal
+  3807 1572859833.93560: done checking for any_errors_fatal
+  3807 1572859833.93561: checking for max_fail_percentage
+  3807 1572859833.93563: done checking for max_fail_percentage
+  3807 1572859833.93564: checking to see if all hosts have failed and the running result is not ok
+  3807 1572859833.93565: done checking to see if all hosts have failed
+  3807 1572859833.93572: getting the remaining hosts for this loop
+  3807 1572859833.93585: done getting the remaining hosts for this loop
+  3807 1572859833.93596: building list of next tasks for hosts
+  3807 1572859833.93602: getting the next task for host 10.1.1.101
+  3807 1572859833.93611: done getting next task for host 10.1.1.101
+  3807 1572859833.93620:  ^ task is: TASK: debug
+  3807 1572859833.93628:  ^ state is: HOST STATE: block=2, task=2, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.93631: done building task lists
+  3807 1572859833.93637: counting tasks in each state of execution
+  3807 1572859833.93639: done counting tasks in each state of execution:
+	num_setups: 0
+	num_tasks: 1
+	num_rescue: 0
+	num_always: 0
+  3807 1572859833.93647: advancing hosts in ITERATING_TASKS
+  3807 1572859833.93649: starting to advance hosts
+  3807 1572859833.93651: getting the next task for host 10.1.1.101
+  3807 1572859833.93654: done getting next task for host 10.1.1.101
+  3807 1572859833.93660:  ^ task is: TASK: debug
+  3807 1572859833.93664:  ^ state is: HOST STATE: block=2, task=2, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.93665: done advancing hosts to next task
+  3807 1572859833.93715: Loading ActionModule 'debug' from /usr/lib/python2.7/dist-packages/ansible/plugins/action/debug.py (found_in_cache=False, class_only=True)
+  3807 1572859833.93722: getting variables
+  3807 1572859833.93725: in VariableManager get_vars()
+  3807 1572859833.93760: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93765: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93769: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93803: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93808: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93811: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93817: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93820: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93824: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93827: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93830: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93901: Calling all_inventory to load vars for 10.1.1.101
+  3807 1572859833.93907: Calling groups_inventory to load vars for 10.1.1.101
+  3807 1572859833.93914: Calling all_plugins_inventory to load vars for 10.1.1.101
+  3807 1572859833.93931: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93942: Calling all_plugins_play to load vars for 10.1.1.101
+  3807 1572859833.93954: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93964: Calling groups_plugins_inventory to load vars for 10.1.1.101
+  3807 1572859833.93977: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859833.93988: Loading data from /home/apiadmin/ansible_dev/checkpoint/group_vars/os_gaia
+  3807 1572859833.93996: Calling groups_plugins_play to load vars for 10.1.1.101
+  3807 1572859833.94008: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859833.94020: Loading data from /home/apiadmin/ansible_dev/checkpoint/group_vars/os_gaia
+  3807 1572859833.94040: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859833.94050: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vars
+  3807 1572859833.94055: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vault
+  3807 1572859833.94068: Loading VarsModule 'host_group_vars' from /usr/lib/python2.7/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+  3807 1572859833.94077: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vars
+  3807 1572859833.94082: Loading data from /home/apiadmin/ansible_dev/checkpoint/host_vars/10.1.1.101/vault
+  3807 1572859833.94123: done with get_vars()
+  3807 1572859833.94134: done getting variables
+  3807 1572859833.94140: sending task start callback, copying the task so we can template it temporarily
+  3807 1572859833.94142: done copying, going to template now
+  3807 1572859833.94146: done templating
+  3807 1572859833.94147: here goes the callback...
+
+TASK [debug] *************************************************************************************************************************************************
+  3807 1572859833.94158: sending task start callback
+  3807 1572859833.94162: entering _queue_task() for 10.1.1.101/debug
+  3807 1572859833.94166: Creating lock for debug
+  3807 1572859833.94273: worker is 1 (out of 1 available)
+  3807 1572859833.94307: exiting _queue_task() for 10.1.1.101/debug
+  3807 1572859833.94325: done queuing things up, now waiting for results queue to drain
+  3807 1572859833.94333: waiting for pending results...
+  3836 1572859833.94580: running TaskExecutor() for 10.1.1.101/TASK: debug
+  3836 1572859833.94623: in run() - task 005056b0-d1a9-cbcd-08df-00000000000d
+  3836 1572859833.94675: calling self._execute()
+  3836 1572859833.94873: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94878: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94881: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94921: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94925: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94928: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94931: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94934: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94936: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94938: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py (found_in_cache=True, class_only=False)
+  3836 1572859833.94940: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95240: Loading FilterModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/core.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95244: Loading FilterModule 'ipaddr' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/ipaddr.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95247: Loading FilterModule 'json_query' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/json_query.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95249: Loading FilterModule 'k8s' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/k8s.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95251: Loading FilterModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/mathstuff.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95253: Loading FilterModule 'network' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/network.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95254: Loading FilterModule 'urls' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urls.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95256: Loading FilterModule 'urlsplit' from /usr/lib/python2.7/dist-packages/ansible/plugins/filter/urlsplit.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95268: Loading TestModule 'core' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/core.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95271: Loading TestModule 'files' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/files.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95273: Loading TestModule 'mathstuff' from /usr/lib/python2.7/dist-packages/ansible/plugins/test/mathstuff.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95347: trying /usr/lib/python2.7/dist-packages/ansible/plugins/connection
+  3836 1572859833.95392: Loading Connection 'ssh' from /usr/lib/python2.7/dist-packages/ansible/plugins/connection/ssh.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95402: trying /usr/lib/python2.7/dist-packages/ansible/plugins/shell
+  3836 1572859833.95415: Loading ShellModule 'sh' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/sh.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95422: Loading ShellModule 'sh' from /usr/lib/python2.7/dist-packages/ansible/plugins/shell/sh.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95546: Loading ActionModule 'debug' from /usr/lib/python2.7/dist-packages/ansible/plugins/action/debug.py (found_in_cache=True, class_only=False)
+  3836 1572859833.95555: starting attempt loop
+  3836 1572859833.95557: running the handler
+  3836 1572859833.95561: handler run complete
+  3836 1572859833.95566: attempt loop complete, returning result
+  3836 1572859833.95568: _execute() done
+  3836 1572859833.95570: dumping result to json
+  3836 1572859833.95573: done dumping result, returning
+  3836 1572859833.95577: done running TaskExecutor() for 10.1.1.101/TASK: debug [005056b0-d1a9-cbcd-08df-00000000000d]
+  3836 1572859833.95584: sending task result for task 005056b0-d1a9-cbcd-08df-00000000000d
+  3836 1572859833.95613: done sending task result for task 005056b0-d1a9-cbcd-08df-00000000000d
+  3836 1572859833.95618: WORKER PROCESS EXITING
+ok: [10.1.1.101] => {
+    "msg": {
+        "changed": true, 
+        "cmd": "bash -lc 'api status' | awk '$0~/API Status/{print $4}'", 
+        "delta": "0:00:02.984801", 
+        "end": "2019-11-04 01:30:33.882411", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2019-11-04 01:30:30.897610", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "Started", 
+        "stdout_lines": [
+            "Started"
+        ]
+    }
+}
+  3807 1572859833.95828: no more pending results, returning what we have
+  3807 1572859833.95838: results queue empty
+  3807 1572859833.95841: checking for any_errors_fatal
+  3807 1572859833.95846: done checking for any_errors_fatal
+  3807 1572859833.95849: checking for max_fail_percentage
+  3807 1572859833.95851: done checking for max_fail_percentage
+  3807 1572859833.95854: checking to see if all hosts have failed and the running result is not ok
+  3807 1572859833.95855: done checking to see if all hosts have failed
+  3807 1572859833.95859: getting the remaining hosts for this loop
+  3807 1572859833.95865: done getting the remaining hosts for this loop
+  3807 1572859833.95872: building list of next tasks for hosts
+  3807 1572859833.95875: getting the next task for host 10.1.1.101
+  3807 1572859833.95882: done getting next task for host 10.1.1.101
+  3807 1572859833.95888:  ^ task is: TASK: meta (flush_handlers)
+  3807 1572859833.95891:  ^ state is: HOST STATE: block=3, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.95894: done building task lists
+  3807 1572859833.95897: counting tasks in each state of execution
+  3807 1572859833.95900: done counting tasks in each state of execution:
+	num_setups: 0
+	num_tasks: 1
+	num_rescue: 0
+	num_always: 0
+  3807 1572859833.95902: advancing hosts in ITERATING_TASKS
+  3807 1572859833.95905: starting to advance hosts
+  3807 1572859833.95908: getting the next task for host 10.1.1.101
+  3807 1572859833.95912: done getting next task for host 10.1.1.101
+  3807 1572859833.95915:  ^ task is: TASK: meta (flush_handlers)
+  3807 1572859833.95919:  ^ state is: HOST STATE: block=3, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.95921: done advancing hosts to next task
+  3807 1572859833.95937: done queuing things up, now waiting for results queue to drain
+  3807 1572859833.95940: results queue empty
+  3807 1572859833.95942: checking for any_errors_fatal
+  3807 1572859833.95944: done checking for any_errors_fatal
+  3807 1572859833.95945: checking for max_fail_percentage
+  3807 1572859833.95947: done checking for max_fail_percentage
+  3807 1572859833.95948: checking to see if all hosts have failed and the running result is not ok
+  3807 1572859833.95949: done checking to see if all hosts have failed
+  3807 1572859833.95951: getting the remaining hosts for this loop
+  3807 1572859833.95956: done getting the remaining hosts for this loop
+  3807 1572859833.95962: building list of next tasks for hosts
+  3807 1572859833.95964: getting the next task for host 10.1.1.101
+  3807 1572859833.95968: done getting next task for host 10.1.1.101
+  3807 1572859833.95973:  ^ task is: TASK: meta (flush_handlers)
+  3807 1572859833.95976:  ^ state is: HOST STATE: block=4, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.95979: done building task lists
+  3807 1572859833.95981: counting tasks in each state of execution
+  3807 1572859833.95983: done counting tasks in each state of execution:
+	num_setups: 0
+	num_tasks: 1
+	num_rescue: 0
+	num_always: 0
+  3807 1572859833.95986: advancing hosts in ITERATING_TASKS
+  3807 1572859833.95988: starting to advance hosts
+  3807 1572859833.95989: getting the next task for host 10.1.1.101
+  3807 1572859833.95994: done getting next task for host 10.1.1.101
+  3807 1572859833.95997:  ^ task is: TASK: meta (flush_handlers)
+  3807 1572859833.96002:  ^ state is: HOST STATE: block=4, task=1, rescue=0, always=0, run_state=ITERATING_TASKS, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.96007: done advancing hosts to next task
+  3807 1572859833.96021: done queuing things up, now waiting for results queue to drain
+  3807 1572859833.96026: results queue empty
+  3807 1572859833.96029: checking for any_errors_fatal
+  3807 1572859833.96035: done checking for any_errors_fatal
+  3807 1572859833.96038: checking for max_fail_percentage
+  3807 1572859833.96041: done checking for max_fail_percentage
+  3807 1572859833.96044: checking to see if all hosts have failed and the running result is not ok
+  3807 1572859833.96050: done checking to see if all hosts have failed
+  3807 1572859833.96055: getting the remaining hosts for this loop
+  3807 1572859833.96061: done getting the remaining hosts for this loop
+  3807 1572859833.96070: building list of next tasks for hosts
+  3807 1572859833.96075: getting the next task for host 10.1.1.101
+  3807 1572859833.96082: done getting next task for host 10.1.1.101
+  3807 1572859833.96087:  ^ task is: None
+  3807 1572859833.96092:  ^ state is: HOST STATE: block=5, task=0, rescue=0, always=0, run_state=ITERATING_COMPLETE, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.96097: done building task lists
+  3807 1572859833.96100: counting tasks in each state of execution
+  3807 1572859833.96105: done counting tasks in each state of execution:
+	num_setups: 0
+	num_tasks: 0
+	num_rescue: 0
+	num_always: 0
+  3807 1572859833.96109: all hosts are done, so returning None's for all hosts
+  3807 1572859833.96113: done queuing things up, now waiting for results queue to drain
+  3807 1572859833.96116: results queue empty
+  3807 1572859833.96118: checking for any_errors_fatal
+  3807 1572859833.96120: done checking for any_errors_fatal
+  3807 1572859833.96122: checking for max_fail_percentage
+  3807 1572859833.96124: done checking for max_fail_percentage
+  3807 1572859833.96126: checking to see if all hosts have failed and the running result is not ok
+  3807 1572859833.96128: done checking to see if all hosts have failed
+  3807 1572859833.96134: getting the next task for host 10.1.1.101
+  3807 1572859833.96139: done getting next task for host 10.1.1.101
+  3807 1572859833.96141:  ^ task is: None
+  3807 1572859833.96145:  ^ state is: HOST STATE: block=5, task=0, rescue=0, always=0, run_state=ITERATING_COMPLETE, fail_state=FAILED_NONE, pending_setup=False, tasks child state? (None), rescue child state? (None), always child state? (None), did rescue? False, did start at task? False
+  3807 1572859833.96149: running handlers
+
+PLAY RECAP ***************************************************************************************************************************************************
+10.1.1.101                 : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+  3807 1572859833.96214: RUNNING CLEANUP

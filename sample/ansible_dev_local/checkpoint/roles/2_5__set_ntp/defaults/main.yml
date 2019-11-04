@@ -1,0 +1,17 @@
+---
+# file: roles/2_5__set_ntp/defaults/main.yml
+gather_facts: no
+connection: local
+set_ntp_syntax_1: "clish -c 
+                     'set ntp server primary {{ item.value.ntp1 }} 
+                      version {{ item.value.ntp1_ver }}' -s
+                      && clish -c 
+                      'set ntp active on' -s"
+set_ntp_syntax_2: "clish -c 
+                     'set ntp server primary {{ item.value.ntp1 }} 
+                      version {{ item.value.ntp1_ver }}' -s
+                      && clish -c 
+                      'set ntp server secondary {{ item.value.ntp2 }} 
+                      version {{ item.value.ntp2_ver }}' -s
+                      && clish -c 
+                      'set ntp active on' -s"

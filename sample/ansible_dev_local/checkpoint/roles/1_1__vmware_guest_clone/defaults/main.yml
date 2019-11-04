@@ -1,0 +1,4 @@
+---
+# file: roles/1_1__vmware_guest_clone/defaults/main.yml
+# gather_facts: no
+connection: local

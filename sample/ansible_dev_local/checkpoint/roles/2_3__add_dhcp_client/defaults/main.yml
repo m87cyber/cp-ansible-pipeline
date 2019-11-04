@@ -1,0 +1,10 @@
+---
+# file: roles/2_3__add_dhcp_client/defaults/main.yml
+gather_facts: no
+connection: local
+add_dhcp_client_syntax: "clish -c 
+                          'add dhcp client 
+                           interface {{ item.value.if_name }}' -s 
+                           && clish -c 
+                          'set interface {{ item.value.if_name }} 
+                          state on' -s " 

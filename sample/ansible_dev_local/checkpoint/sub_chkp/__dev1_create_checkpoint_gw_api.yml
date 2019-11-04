@@ -1,0 +1,108 @@
+---
+# file: sub_chkp/__dev1_create_checkpoint_gw_api.yml
+#...............................................................
+# * engaging remote api calls *
+#   -------------------------
+#   this playbook would 
+#     - add chkp mgmt api fingerprint to the relevant var file
+#     - create the gateway object on the SMS database 
+#...............................................................
+
+- hosts: chkp_sms
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: "extracting api fingerprint"
+    shell: "api fingerprint | grep SHA1 | cut -c 7-"
+    register: result
+  - debug:
+      msg: "{{ result }}"
+
+  - name: "making sure 'mgmt_api_fingerprint' is removed from 'dev1_policy_pkg_vars.yml'"
+    lineinfile:
+      path: /home/apiadmin/ansible_dev/checkpoint/checkpoint_vars/dev1_policy_pkg_vars.yml
+      state: absent
+      regexp: '^mgmt_api_fingerprint'
+    delegate_to: localhost
+
+  - name: "making sure the new 'mgmt_api_fingerprint' is added to 'dev1_policy_pkg_vars.yml'"
+    lineinfile:
+      path: /home/apiadmin/ansible_dev/checkpoint/checkpoint_vars/dev1_policy_pkg_vars.yml
+      line: "mgmt_api_fingerprint: {{ result.stdout }}"
+    delegate_to: localhost
+
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  vars_files:
+  - /home/apiadmin/ansible_dev/checkpoint/checkpoint_vars/dev1_policy_pkg_vars.yml
+
+  tasks:
+  - name: Wait up to 300 seconds for SIC port 18211 to Open
+    wait_for:
+      port: 18211
+      host: 10.1.1.1
+      delay: 10
+    connection: local
+
+  - name: "login"
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{ mgmt_user }}"
+        password: "{{ mgmt_password }}"
+        management: "{{ mgmt_server }}"
+      fingerprint: "{{ mgmt_api_fingerprint }}"
+    register: login_response
+
+  - name: "Create SimpleGateway"
+    check_point_mgmt:
+      command: add-simple-gateway 
+      parameters:
+        name: "{{ gw_obj_name }}"
+        ipv4-address: "{{ gw_obj_ipv4address }}" 
+        color: blue
+        tags: "dev1"
+        firewall: "true"
+        version: "R80.30"
+        ips: "true"
+        one-time-password: "{{ gw_sic_key }}"
+        interfaces:
+        -  name: eth0
+           ipv4-address: "{{ gw_obj_eth0_ipv4 }}" 
+           ipv4-network-mask: "{{ gw_obj_eth0_ipv4_mask }}"
+           topology: Internal
+           anti-spoofing: "true"
+           topology-settings:
+             ip-address-behind-this-interface: "network defined by the interface ip and net mask"
+        -  name: eth1
+           ipv4-address: "{{ gw_obj_eth1_ipv4 }}" 
+           ipv4-network-mask: "{{ gw_obj_eth1_ipv4_mask }}"
+           topology: Internal
+           anti-spoofing: "true"
+           topology-settings:
+             ip-address-behind-this-interface: "network defined by the interface ip and net mask"
+        -  name: eth2
+           ipv4-address: "{{ gw_obj_eth2_ipv4 }}" 
+           ipv4-network-mask: "{{ gw_obj_eth2_ipv4_mask }}"
+           topology: Internal
+           anti-spoofing: "true"
+           topology-settings:
+             ip-address-behind-this-interface: "network defined by the interface ip and net mask"
+        -  name: eth3
+           ipv4-address: "{{ gw_obj_eth3_ipv4 }}" 
+           ipv4-network-mask: "{{ gw_obj_eth3_ipv4_mask }}"
+           topology: External
+           anti-spoofing: "true"
+      session-data: "{{ login_response }}"
+
+  - name: "publish"
+    check_point_mgmt:
+      command: publish
+      session-data: "{{ login_response }}"
+
+  - name: "logout"
+    check_point_mgmt:
+      command: logout
+      session-data: "{{ login_response }}"

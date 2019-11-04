@@ -1,0 +1,50 @@
+---
+# file: checkpoint_vars/dev1_policy_pkg_vars.yml
+#...............................................................
+# review the following variables and 
+# modify them according to your environment.
+#...............................................................
+# these varaibles will be used by sub_chkp 
+# plabooks for security policy provisioning.
+#...............................................................
+
+# GW object specs
+gw_obj_name: dev1-AU-CP-GW # this should be the same as the gateway's hostname
+gw_obj_ipv4address: 10.1.1.1
+gw_sic_key: vpn123
+gw_obj_eth0_ipv4: 10.1.1.1
+gw_obj_eth0_ipv4_mask: 255.255.255.0
+gw_obj_eth1_ipv4: 172.16.1.1
+gw_obj_eth1_ipv4_mask: 255.255.255.0
+gw_obj_eth2_ipv4: 10.2.2.1
+gw_obj_eth2_ipv4_mask: 255.255.255.0
+gw_obj_eth3_ipv4: 192.168.202.111
+gw_obj_eth3_ipv4_mask: 255.255.255.0
+# Policy package specs
+plc_pkg_name: dev1_policy_package
+plc_pkg_comment: "Created by ansible for dev1_chkp"
+# Networks
+external_subnet_name: dev1_NET_192.168.202.0
+external_subnet_cidr: 192.168.202.0/24
+mgmt_subnet_name: dev1_NET_10.1.1.0
+mgmt_subnet_cidr: 10.1.1.0/24
+dmz1_subnet_name: dev1_NET_172.16.1.0
+dmz1_subnet_cidr: 172.16.1.0/24
+users_subnet_name: dev1_NET_10.2.2.0
+users_subnet_cidr: 10.2.2.0/24
+# Hosts
+host1_name: dev1_HOST_10.1.1.201
+host1_ip: 10.1.1.201
+host1_comments: "GUI client"
+host2_name: dev1_HOST_172.16.1.101
+host2_ip: 172.16.1.101
+host2_comments: "Zabbix Server"
+host3_name: dev1_HOST_10.2.2.201
+host3_ip: 10.2.2.201
+host3_comments: "MATE Client"
+host4_name: dev1_HOST_192.168.202.214
+host4_ip: 192.168.202.214
+host4_comments: "DNS Server"
+perimeter_gw_external_if_name: dev1-CP-GW-Hide
+perimeter_gw_external_if_ip: 192.168.202.111
+# api fingerprint

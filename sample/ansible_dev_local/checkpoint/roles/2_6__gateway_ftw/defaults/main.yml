@@ -1,0 +1,4 @@
+---
+# file: roles/2_6__gateway_ftw/defaults/main.yml
+gather_facts: no
+connection: local

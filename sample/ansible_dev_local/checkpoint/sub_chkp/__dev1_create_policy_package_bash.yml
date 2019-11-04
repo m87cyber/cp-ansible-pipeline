@@ -1,0 +1,35 @@
+---
+# file: sub_chkp/__dev1_create_policy_package_bash.yml
+#...............................................................
+# * taking advantage of bash *
+#   ------------------------
+#   this playbook would
+#     - transfer four csv files to the SMS
+#     - run 'dev1_create_policy_package.sh' on the SMS to 
+#          > create all necessary objects on the SMS database
+#          > create a policy package for the gateway on the SMS 
+#            database
+#          > install policy on the gateway 
+#...............................................................
+
+- hosts: 10.1.1.101
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: "Copying dev1_hosts.csv, dev1_networks.csv, and dev1_groups.csv to 10.1.1.101"
+    copy:
+      src: "{{ item }}"
+      dest: /home/admin/
+    with_items:
+      - /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_hosts.csv
+      - /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_networks.csv
+      - /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_groups_names.csv
+      - /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_groups.csv
+
+  - name: "Running scripts/gaia/dev1_create_policy_package.sh on 10.1.1.101"
+    script: /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_create_policy_package.sh
+    register: output
+
+  - debug: var=output.stdout_lines
+

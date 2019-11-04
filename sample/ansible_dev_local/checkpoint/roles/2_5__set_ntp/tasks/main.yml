@@ -1,0 +1,15 @@
+---
+# file: roles/2_5__set_ntp/tasks/main.yml
+- name: "Configure ntp settings"
+  shell: "{{ set_ntp_syntax_1 }}"
+  with_dict: "{{ ntp_config }}"
+  when:
+    - ntp_config.ntp.ntp1 is defined
+    - ntp_config.ntp.ntp2 is not defined
+
+- name: "Configure ntp settings"
+  shell: "{{ set_ntp_syntax_2 }}"
+  with_dict: "{{ ntp_config }}"
+  when:
+    - ntp_config.ntp.ntp1 is defined
+    - ntp_config.ntp.ntp2 is defined

@@ -1,0 +1,48 @@
+---
+# file: 2__dev1_revert_clean.yml
+#...............................................................
+# this playbook would 
+#  - run 'dev1_chkp_revert.sh' on the SMS to
+#       > remove all created objects on the SMS database
+#  - delete the gateway vm
+#...............................................................
+
+- hosts: 10.1.1.101
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: "Copying dev1_hosts_names.csv, dev1_networks_names.csv, and dev1_groups_names.csv to 10.1.1.101"
+    copy:
+      src: "{{ item }}"
+      dest: /home/admin/
+    with_items:
+      - /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_hosts_names.csv
+      - /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_networks_names.csv
+      - /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_groups_names.csv
+
+  - name: "Running scripts/gaia/dev1_chkp_revert.sh on 10.1.1.101"
+    script: /home/apiadmin/ansible_dev/checkpoint/scripts/gaia/dev1_chkp_revert.sh
+    register: output
+
+  - debug: var=output.stdout_lines
+
+- hosts: vmware_vcsa
+  gather_facts: no
+
+  tasks:
+  - name: Calling CP-GW VM variabls
+    include_vars:
+      file: vmware_vars/dev1_deployed_gw_vm_facts.yml
+      name: gw_vm_params
+
+  - name: Calling VMware related variables
+    include_vars:
+      file: vmware_vars/dev1_vcsa_revert_vars.yml
+
+  - debug:
+      msg: "{{ gw_vm_params }}"
+
+  - include_role:
+      name: 1_3__vmware_guest_revert_gw_only
+

@@ -1,0 +1,16 @@
+---
+# file: roles/2_7__set_static_route/defaults/main.yml
+gather_facts: no
+connection: local
+set_static_route_syntax_1: "clish -c 
+                              'set static-route {{ item.value.dst }} 
+                              nexthop gateway logical 
+                              {{ item.value.interface }} 
+                              {{ item.value.state }} 
+                              priority {{ item.value.priority }}' -s"
+set_static_route_syntax_2: "clish -c 
+                              'set static-route {{ item.value.dst }} 
+                              nexthop gateway address 
+                              {{ item.value.next_hop_address }} 
+                              {{ item.value.state }} 
+                              priority {{ item.value.priority }}' -s"

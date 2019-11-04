@@ -1,0 +1,445 @@
+---
+# file: sub_chkp/__dev1_create_policy_package_api.yml
+#...............................................................
+# * engaging remote api calls *
+#   -------------------------
+#   this playbook would
+#     - add chkp mgmt api fingerprint to the relevant var file
+#     - create all necessary objects on the SMS database 
+#     - create a policy package for the gateway on the 
+#       SMS database
+#     - install policy on the gateway 
+#...............................................................
+
+- hosts: chkp_sms
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: "extracting api fingerprint"
+    shell: "api fingerprint | grep SHA1 | cut -c 7-"
+    register: result
+  - debug:
+      msg: "{{ result }}"
+
+  - name: "making sure 'mgmt_api_fingerprint' is removed from 'dev1_policy_pkg_vars.yml'"
+    lineinfile:
+      path: /home/apiadmin/ansible_dev/checkpoint/checkpoint_vars/dev1_policy_pkg_vars.yml
+      state: absent
+      regexp: '^mgmt_api_fingerprint'
+    delegate_to: localhost
+
+  - name: "making sure the new 'mgmt_api_fingerprint' is added to 'dev1_policy_pkg_vars.yml'"
+    lineinfile:
+      path: /home/apiadmin/ansible_dev/checkpoint/checkpoint_vars/dev1_policy_pkg_vars.yml
+      line: "mgmt_api_fingerprint: {{ result.stdout }}"
+    delegate_to: localhost
+
+
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  vars_files:
+  - /home/apiadmin/ansible_dev/checkpoint/checkpoint_vars/dev1_policy_pkg_vars.yml
+
+  tasks:
+  - name: "login"
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{ mgmt_user }}"
+        password: "{{ mgmt_password }}"
+        management: "{{ mgmt_server }}"
+      fingerprint: "{{ mgmt_api_fingerprint }}"
+    register: login_response
+
+# Adding the policy package
+  - name: "create-new-policy-package"
+    check_point_mgmt:
+      command: add-package
+      parameters:
+        name: "{{ plc_pkg_name }}"
+        comments: "{{ plc_pkg_comment }}"
+        color: "green"
+        threat-prevention: "true"
+        access: "true"
+      session-data: "{{ login_response }}"
+
+# Adding networks
+  - name: "add the external subnet"
+    check_point_mgmt:
+      command: add-network
+      parameters:
+        name: "{{ external_subnet_name }}"
+        subnet: "{{ external_subnet_cidr | ipaddr('network') }}" 
+        subnet-mask: "{{ external_subnet_cidr | ipaddr('netmask') }}"
+        color: "red"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+  - name: "add the management subnet"
+    check_point_mgmt:
+      command: add-network
+      parameters:
+        name: "{{ mgmt_subnet_name }}"
+        subnet: "{{ mgmt_subnet_cidr | ipaddr('network') }}" 
+        subnet-mask: "{{ mgmt_subnet_cidr | ipaddr('netmask') }}"
+#        groups: "dev1_internal_nets"
+        color: "blue"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+  - name: "add DMZ1 subnet"
+    check_point_mgmt:
+      command: add-network
+      parameters:
+        name: "{{ dmz1_subnet_name }}"
+        subnet: "{{ dmz1_subnet_cidr | ipaddr('network') }}" 
+        subnet-mask: "{{ dmz1_subnet_cidr | ipaddr('netmask') }}"
+#        groups: "dev1_internal_nets"
+        color: "cyan"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+  - name: "add Users subnet"
+    check_point_mgmt:
+      command: add-network
+      parameters:
+        name: "{{ users_subnet_name }}"
+        subnet: "{{ users_subnet_cidr | ipaddr('network') }}" 
+        subnet-mask: "{{ users_subnet_cidr | ipaddr('netmask') }}"
+#        groups: "dev1_internal_nets"
+        color: "orange"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+# Adding hosts     
+  - name: "add GUI-CLNT host"
+    check_point_mgmt:
+      command: add-host
+      parameters:
+        name: "{{ host1_name }}"
+        ip-address: "{{ host1_ip }}"
+        color: "blue"
+        comments: "{{ host1_comments }}"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+  - name: "add Zabbix-Server host"
+    check_point_mgmt:
+      command: add-host
+      parameters:
+        name: "{{ host2_name }}"
+        ip-address: "{{ host2_ip }}"
+        color: "cyan"
+        nat-settings:
+          auto-rule: true
+          method: "static"
+          ipv4-address: 192.168.202.110
+        comments: "{{ host2_comments }}"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+  - name: "add CLNT-01 host"
+    check_point_mgmt:
+      command: add-host
+      parameters:
+        name: "{{ host3_name }}"
+        ip-address: "{{ host3_ip }}"
+        color: "orange"
+        comments: "{{ host3_comments }}"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+  - name: "add DNS-Server host"
+    check_point_mgmt:
+      command: add-host
+      parameters:
+        name: "{{ host4_name }}"
+        ip-address: "{{ host4_ip }}"
+        color: "red"
+        comments: "{{ host4_comments }}"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+  - name: "add Hide_NAT host"
+    check_point_mgmt:
+      command: add-host
+      parameters:
+        name: "{{ perimeter_gw_external_if_name }}"
+        ip-address: "{{ perimeter_gw_external_if_ip }}"
+        color: "red"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+# Adding groups
+  - name: "add-internal-nets-group"
+    check_point_mgmt:
+      command: add-group
+      parameters:
+        name: "dev1_internal_nets"
+        members:
+          - "{{ mgmt_subnet_name }}"
+          - "{{ dmz1_subnet_name }}"
+          - "{{ users_subnet_name }}"
+        tags: "dev1"
+      session-data: "{{ login_response }}"
+
+# Adding access rules
+  - name: "add access section management rules"
+    check_point_mgmt:
+      command: add-access-section
+      parameters:
+        layer: "{{ plc_pkg_name }} Network"
+        name: "(1) management rules"
+        position: "top"
+      session-data: "{{ login_response }}"
+
+  - name: "add access rule for Gateway management"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name }} Network"
+        name: "cp-gw management access"
+        position:
+          top: "(1) management rules"
+        source:
+          - "{{ host1_name }}"
+        destination:
+          - "{{ gw_obj_name }}"
+        service:
+          - "ssh"
+          - "https"
+        action: "accept"
+        track: "Log"
+      session-data: "{{ login_response }}"
+
+  - name: "add stealth rule"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name }} Network"
+        name: "stealth rule"
+        position:
+          above: "Cleanup rule"
+        source:
+          - "any"
+        destination:
+          - "{{ gw_obj_name }}"
+        service:
+          - "any"
+        action: "drop"
+        track: "Log"
+      session-data: "{{ login_response }}"
+      
+  - name: "add access section (2) internal-internal access rules"
+    check_point_mgmt:
+      command: add-access-section
+      parameters:
+        layer: "{{ plc_pkg_name }} Network"
+        name: "(2) internal-internal access rules"
+        position:
+          above: "Cleanup rule"   
+      session-data: "{{ login_response }}"
+
+  - name: "add access rule from Users and Management subnets to DMZ1 subnet"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name  }} Network"
+        name: "access to DMZ1"
+        position:
+          top: "(2) internal-internal access rules"
+        source:
+          - "{{ mgmt_subnet_name }}"
+          - "{{ users_subnet_name }}"
+        destination:
+          - "{{ dmz1_subnet_name }}"
+        service:
+          - "any"
+        action: "accept"
+        track: "Log"
+      session-data: "{{ login_response }}"
+
+  - name: "add access rule from external network to zabbix"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name  }} Network"
+        name: "external access to zabbix"
+        position:
+          above: "Cleanup rule"
+        source:
+          - "{{ external_subnet_name }}"
+        destination:
+          - "{{ host2_name }}"
+        service:
+          - "http"
+        action: "accept"
+        track: "Log"
+      session-data: "{{ login_response }}"
+
+  - name: "add access rule from Zabbix to Users and Management subnets"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name  }} Network"
+        name: "zabbix access to internal nets"
+        position:
+          above: "Cleanup rule"
+        source:
+          - "{{ host2_name }}"
+        destination:
+          - "{{ mgmt_subnet_name }}"
+          - "{{ users_subnet_name }}"
+        service:
+          - "any"
+        action: "accept"
+        track: "Log"
+      session-data: "{{ login_response }}"
+
+  - name: "add access rule from any to Internal subnets"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name }} Network"
+        name: "block access to internal nets"
+        position:
+          above: "Cleanup rule"
+        source:
+          - "any"
+        destination:
+          - "dev1_internal_nets"
+        service:
+          - "any"
+        action: "drop"
+        track: "Log"
+      session-data: "{{ login_response }}"
+
+  - name: "add access section Internal-External access rules"
+    check_point_mgmt:
+      command: add-access-section
+      parameters:
+        layer: "{{ plc_pkg_name }} Network"
+        name: "(3) internal-external access rules"
+        position:
+          above: "Cleanup rule"   
+      session-data: "{{ login_response }}"
+
+  - name: "add access rule from internal to dns"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name  }} Network"
+        name: "dns queries"
+        position:
+          top: "(3) internal-external access rules"
+        source:
+          - "dev1_internal_nets"
+        destination:
+          - "{{ host4_name }}"
+        service:
+          - "dns"
+        action: "accept"
+        track: "Log"
+      session-data: "{{ login_response }}"
+
+  - name: "add access rule from internal to any for http, https"
+    check_point_mgmt:
+      command: add-access-rule
+      parameters:
+        layer: "{{ plc_pkg_name  }} Network"
+        name: "Internet access"
+        position:
+          above: "Cleanup rule"
+        source:
+          - "dev1_internal_nets"
+        destination:
+          - "any"
+        service:
+          - "http"
+          - "https"
+        action: "accept"
+        track: "Log"
+      session-data: "{{ login_response }}"
+
+  - name: "add access section default drop"
+    check_point_mgmt:
+      command: add-access-section
+      parameters:
+        layer: "{{ plc_pkg_name }} Network"
+        name: "default drop"
+        position:
+          above: "Cleanup rule"   
+      session-data: "{{ login_response }}"
+
+
+# Adding NAT rules
+  - name: "add NAT section"
+    check_point_mgmt:
+      command: add-nat-section
+      parameters:
+        package: "{{ plc_pkg_name }}"
+        name: "dev1_chkp manual NAT rules"
+        position: "top"
+      session-data: "{{ login_response }}"
+
+  - name: "add no NAT rule for Internal subnets to Internal subnets"
+    check_point_mgmt:
+      command: add-nat-rule
+      parameters:
+        package: "{{ plc_pkg_name }}"
+        comments: "Internal subnets NAT"
+        position:
+          top: "dev1_chkp manual NAT rules"
+        original-source: "dev1_internal_nets"
+        original-destination: "dev1_internal_nets"
+      session-data: "{{ login_response }}"
+
+  - name: "add NAT rule for Internal subnets to any networks"
+    check_point_mgmt:
+      command: add-nat-rule
+      parameters:
+        package: "{{ plc_pkg_name }}"
+        comments: "Internal subnets NAT"
+        position:
+          bottom: "dev1_chkp manual NAT rules"
+        original-source: "dev1_internal_nets"
+        translated-source: "{{ perimeter_gw_external_if_name }}"
+        method: "hide"
+      session-data: "{{ login_response }}"
+
+# Publish changes
+  - name: "publish"
+    check_point_mgmt:
+      command: publish
+      session-data: "{{ login_response }}"
+
+# Install policy
+  - name: "Push Access Policy"
+    check_point_mgmt:
+      command: install-policy
+      parameters:
+        policy-package: "{{ plc_pkg_name }}"
+        access: "true"
+        threat-prevention: "false"
+        targets:
+          -  "{{ gw_obj_name }}"
+      session-data: "{{ login_response }}"
+
+  - name: "Push Threat Policy"
+    check_point_mgmt:
+      command: install-policy
+      parameters:
+        policy-package: "{{ plc_pkg_name }}"
+        access: "false"
+        threat-prevention: "true"
+        targets:
+          -  "{{ gw_obj_name }}"
+      session-data: "{{ login_response }}"
+
+# Logout of the session
+  - name: "logout"
+    check_point_mgmt:
+      command: logout
+      session-data: "{{ login_response }}"

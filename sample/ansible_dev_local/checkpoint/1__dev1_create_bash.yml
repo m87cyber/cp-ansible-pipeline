@@ -1,0 +1,89 @@
+---
+# file: 1__dev1_create_bash.yml
+#...............................................................
+# this playbook would 
+#  - clone the gateway from template by including VMWare roles
+#  - configure Gaia by including Check Point roles
+#  - perfrom the security policy provisioning by importing
+#     > 'sub_chkp/__dev1_create_checkpoint_gw_bash.yml'
+#     > 'sub_chkp/__dev1_create_policy_package_bash.yml'
+#...............................................................
+
+- name: dev1_chkp Deployment
+  gather_facts: no
+  hosts: all
+
+- hosts: vmware_vcsa
+  gather_facts: no
+  tasks:
+  # Cloning the R80.30 GW VM
+  - name: calling the required variabls for cloning vm from template 
+    include_vars:
+      file: vmware_vars/dev1_vcsa_clone_vars.yml
+  - include_role:
+      name: 1_1__vmware_guest_clone
+
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  # Adding cloned GW temp ip_address to 'known_hosts' on localhost
+  - include_role:
+      name: 0_1__add_ssh_key
+    vars:
+      server_address: 10.1.1.254
+
+- hosts: chkp_gw_template
+  gather_facts: no
+  vars_files:
+  - checkpoint_vars/dev1_gaia_config_vars.yml
+  tasks:
+  # Setting shell to bash
+  - include_role:
+      name: 2_1__set_bash
+  # Configuring Interfaces
+  - include_role:
+      name: 2_2__set_interface
+  # Changing the ip-address of the management interface
+  - name: changing ip address of the mgmt interface of the gateway
+    shell: clish -c "set interface eth0 ipv4-address 10.1.1.1 mask-length 24"
+    ignore_errors: yes
+    async: 1
+    poll: 0
+
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  # Adding cloned GW new ip_address to 'known_hosts' on localhost
+  - include_role:
+      name: 0_1__add_ssh_key
+    vars:
+      server_address: 10.1.1.1
+
+- hosts: chkp_gw
+  gather_facts: no
+  vars_files:
+  - checkpoint_vars/dev1_gaia_config_vars.yml
+  tasks:
+  # Saving configuration
+  - name: saving configuration
+    shell: clish -c "save config"
+  # # Configuring dhcp Interfaces
+    # - include_role:
+        # name: 2_3__add_dhcp_client
+  # Configuring DNS and NTP
+  - include_role:
+      name: 2_4__set_dns
+  - include_role:
+      name: 2_5__set_ntp
+  # First-time Wizard
+  - include_role:
+      name: 2_6__gateway_ftw
+
+# Creating the Gateway Object and installing policy
+- name: creating the gateway object and installing policy
+  import_playbook: sub_chkp/__dev1_create_checkpoint_gw_bash.yml
+
+# Creating the Policy Package
+- name: creating the policy package
+  import_playbook: sub_chkp/__dev1_create_policy_package_bash.yml
+

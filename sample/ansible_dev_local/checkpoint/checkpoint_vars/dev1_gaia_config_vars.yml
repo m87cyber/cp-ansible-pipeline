@@ -1,0 +1,54 @@
+---
+# file: checkpoint_vars/dev1_gaia_config_vars.yml
+#...............................................................
+# review the following variables and 
+# modify them according to your environment.
+#...............................................................
+# these varaibles will be used by Check Point roles
+# to perform the OS-level configuration of the gateway.
+#...............................................................
+
+interfaces_config:
+  interface1:
+    if_name: eth1
+    if_ipv4: 172.16.1.1
+    if_masklength: 24
+  interface2:
+    if_name: eth2
+    if_ipv4: 10.2.2.1
+    if_masklength: 24
+  interface3:
+    if_name: eth3
+    if_ipv4: 192.168.202.111
+    if_masklength: 24
+
+
+# dhcp_client_config:
+  # dhcpclient1:
+    # if_name: eth3
+
+dns_config:
+  dns:
+    dns1: 192.168.202.214
+    dns2: 8.8.8.8
+
+ntp_config:
+  ntp:
+    ntp1: 0.pool.ntp.org
+    ntp1_ver: 4
+
+hostname: dev1-AU-CP-GW
+sickey: vpn123
+timezone: America/New_York
+
+static_route_config:
+  address1:
+    dst: default
+    next_hop_address: 192.168.202.1
+    state: on
+    priority: 1
+  address2:
+    dst: 192.168.201.0/24
+    next_hop_address: 192.168.202.254
+    state: on
+

@@ -1,0 +1,4 @@
+---
+# file: host_vars/10.1.1.254/vars
+ansible_user: "{{ vault_ansible_user }}"
+ansible_ssh_pass: "{{ vault_ansible_ssh_pass }}"

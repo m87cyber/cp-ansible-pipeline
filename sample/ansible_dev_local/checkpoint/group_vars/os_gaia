@@ -1,0 +1,4 @@
+---
+# file: group_vars/os_gaia
+ansible_connection: ssh
+ansible_python_interpreter: 	/opt/CPsuite-R80.30/fw1/Python/bin/python

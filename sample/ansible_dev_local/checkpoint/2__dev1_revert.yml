@@ -1,0 +1,28 @@
+---
+# file: 2__dev1_revert.yml
+#...............................................................
+# this playbook would 
+#  - shutdown and delete the gateway vm
+#  - revert the SMS to the base snapshot
+#...............................................................
+
+- name: dev1_chkp Revert to base state
+  gather_facts: no
+  hosts: vmware_vcsa
+
+  tasks:
+  - name: Calling CP-GW VM variabls
+    include_vars:
+      file: vmware_vars/dev1_deployed_gw_vm_facts.yml
+      name: gw_vm_params
+
+  - name: Calling VMware related variables
+    include_vars:
+      file: vmware_vars/dev1_vcsa_revert_vars.yml
+
+  - debug:
+      msg: "{{ gw_vm_params }}"
+
+  - include_role:
+      name: 1_2__vmware_guest_revert
+

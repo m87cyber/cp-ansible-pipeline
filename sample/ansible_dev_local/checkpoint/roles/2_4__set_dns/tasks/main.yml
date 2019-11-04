@@ -1,0 +1,24 @@
+---
+# file: roles/2_4__set_dns/tasks/main.yml
+- name: "Configure dns settings"
+  shell: "{{ set_dns_syntax_1 }}"
+  with_dict: "{{ dns_config }}"
+  when:
+    - dns_config.dns.dns1 is defined
+    - not (dns_config.dns.dns2 is defined and dns_config.dns.dns3 is defined)
+
+- name: "Configure dns settings"
+  shell: "{{ set_dns_syntax_2 }}"
+  with_dict: "{{ dns_config }}"
+  when:
+    - dns_config.dns1 is defined
+    - dns_config.dns2 is defined
+    - dns_config.dns3 is not defined
+
+- name: "Configure dns settings"
+  shell: "{{ set_dns_syntax_3 }}"
+  with_dict: "{{ dns_config }}"
+  when:
+    - dns_config.dns1 is defined
+    - dns_config.dns2 is defined
+    - dns_config.dns3 is defined
