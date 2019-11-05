@@ -1,3 +1,6 @@
+![version status](https://img.shields.io/badge/cpap-v0.02--preview-yellow)
+![license](https://img.shields.io/badge/License-GPL%20v3.0-brightgreen)
+
 # cp-ansible-pipeline
 This is a pipeline to create a sample ansible project directory for the
 deployment of a Check Point gateway as well as its decommissioning.
@@ -122,3 +125,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 A copy of the Apache License, Version 2 has been placed in [sample/ansible_dev_local/checkpoint/library](sample/ansible_dev_local/checkpoint/library).
+
