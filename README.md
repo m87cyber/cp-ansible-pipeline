@@ -122,3 +122,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 A copy of the Apache License, Version 2 has been placed in [sample/ansible_dev_local/checkpoint/library](sample/ansible_dev_local/checkpoint/library).
+
+.. |License| image:: https://img.shields.io/badge/license-GPL%20v3.0-brightgreen.svg
+   :target: COPYING
+   :alt: Repository License
