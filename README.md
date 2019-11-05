@@ -1,3 +1,6 @@
+![version status](https://img.shields.io/badge/cpap-v0.02--preview-yellow)
+![license](https://img.shields.io/badge/License-GPL%20v3.0-brightgreen)
+
 # cp-ansible-pipeline
 This is a pipeline to create a sample ansible project directory for the
 deployment of a Check Point gateway as well as its decommissioning.
